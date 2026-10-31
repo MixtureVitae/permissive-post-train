@@ -32,6 +32,10 @@ ORGS = ("ali-elganzory", "open-sci", "laion", "ontocord", "marianna13")
 EXTERNAL = ("Qwen/Qwen2.5-1.5B-Instruct", "Qwen/Qwen3-1.7B", "Qwen/Qwen2.5-1.5B",
             "Qwen/Qwen3-1.7B-Base", "HuggingFaceTB/SmolLM2-1.7B",
             "HuggingFaceTB/SmolLM2-1.7B-Instruct")
+#: Organizations of external releases. A folder name that no repo of ORGS has is
+#: looked up under each of them by its exact name: the Phase 2 run of
+#: SmolLM2-1.7B-Instruct-16k starts from HuggingFaceTB's release of that name.
+EXTERNAL_ORGS = ("HuggingFaceTB", "Qwen")
 PAUSE = 1.0
 _HASH = re.compile(r"^[0-9a-f]{40}$")
 _NEXT = re.compile(r'<([^>]+)>;\s*rel="next"')
@@ -51,6 +55,14 @@ def list_org(org: str) -> list[str]:
         m = _NEXT.search(headers.get("Link", ""))
         url = m.group(1) if m else None
     return repos
+
+
+def exists(repo: str) -> bool:
+    try:
+        _json(f"{API}/{repo}")
+    except NotFound:
+        return False
+    return True
 
 
 def _parent_from_run_summary(value: str | None) -> str | None:
@@ -147,6 +159,9 @@ def snapshot(names: set[str], repo_ids: set[str], out: Path, max_depth: int = 4,
             exact = sorted(by_name.get(name, []))
             prefix = sorted({r for n, rs in by_name.items() if n.startswith(name) for r in rs})
             resolved[name] = exact or (prefix if len({bare(r) for r in prefix}) == 1 else [])
+            if not resolved[name]:
+                resolved[name] = next(([f"{org}/{name}"] for org in EXTERNAL_ORGS
+                                       if exists(f"{org}/{name}")), [])
     queue = [(r, 0) for r in sorted({r for v in resolved.values() for r in v} | set(repo_ids))
              if r not in repos]
     while queue:

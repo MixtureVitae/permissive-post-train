@@ -244,7 +244,13 @@ On 2026-10-30 open-sci uploaded the Phase 2 checkpoints that were not on
 Hugging Face, and Marianna Nezhurina listed them in the collection
 `open-sci/mv-post-training-17b-checkpoints`. `mvpt snapshot-checkpoints
 --update` now looks up again every name it found no repository for, and it
-found 58 of the 59: every Phase 2 checkpoint but `SmolLM2-1.7B-Instruct-16k`.
+found 58 of the 59. The 59th, `SmolLM2-1.7B-Instruct-16k`, is the SmolLM2
+authors' own release, `HuggingFaceTB/SmolLM2-1.7B-Instruct-16k`. The lookup has
+found it since a name that no team repository has is also tried, by its exact
+name, under the organizations of the external releases (`EXTERNAL_ORGS`). Its
+OT30K run's training summary starts from a folder of that name, and the run
+keeps that release's `rope_theta` of 500,000. All 190 checkpoints of the
+manifest are on Hugging Face.
 The rebuilt manifest changes in these ways, and in no result, suite average or
 change value:
 

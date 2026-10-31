@@ -260,6 +260,15 @@ def test_an_update_fetches_only_new_checkpoints(tmp_path, monkeypatch):
     assert data["updates"][-1]["added"] == ["o/b"]
 
 
+
+def test_a_name_no_team_repo_has_is_looked_up_in_the_external_orgs(tmp_path, monkeypatch):
+    monkeypatch.setattr(hf_snapshot, "list_org", lambda org: [f"{org}/Other"])
+    monkeypatch.setattr(hf_snapshot, "exists", lambda repo: repo == "HuggingFaceTB/M-16k")
+    monkeypatch.setattr(hf_snapshot, "repo_record", lambda repo: _rec("x"))
+    data = hf_snapshot.snapshot({"M-16k", "Gone"}, set(), tmp_path / "s.json")
+    assert data["names"] == {"Gone": [], "M-16k": ["HuggingFaceTB/M-16k"]}
+
+
 # --- Phase 2 results ----------------------------------------------------------
 
 def _scores(rows):

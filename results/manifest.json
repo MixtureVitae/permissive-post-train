@@ -203,9 +203,15 @@
       "open-sci/sft__ot30k_Qwen3-1.7B-Base"
      ],
      "date": "2026-10-31"
+    },
+    {
+     "added": [
+      "HuggingFaceTB/SmolLM2-1.7B-Instruct-16k"
+     ],
+     "date": "2026-10-31"
     }
    ],
-   "sha256": "c51aa1fe539c3176f2bdf4b396dcc3685dd17178342cc51ec06f866664da3c0f"
+   "sha256": "4d47231362309e2f68cf389d37e1138c93c8bca7cfb1b3ba98123000ed2205bb"
   },
   "older_evaluations": {
    "what": "lm-eval-harness results files of the older evaluations, January to May 2026, which no table of the paper prints any more",
@@ -4343,11 +4349,19 @@
   },
   "SmolLM2-1.7B-Instruct-16k": {
    "record_name": "SmolLM2-1.7B-Instruct-16k",
-   "hf_repos": [],
+   "hf_repos": [
+    "HuggingFaceTB/SmolLM2-1.7B-Instruct-16k"
+   ],
    "repos_differ": false,
-   "created": null,
-   "weights_sha256": [],
-   "context": null,
+   "created": "2025-02-21",
+   "weights_sha256": [
+    "model.safetensors:17b31f0cd32d70f0c46092b41d044d46991a901438af30fa10036387b154509e"
+   ],
+   "context": {
+    "max_position_embeddings": 16384,
+    "rope_scaling": null,
+    "rope_theta": 500000
+   },
    "training_data": null,
    "parent": "SmolLM2-1.7B-Instruct",
    "parent_status": "name only",
@@ -103288,7 +103302,7 @@
   {
    "name": "checkpoint_snapshot_sha256",
    "status": "pass",
-   "detail": "hf_checkpoints.json has SHA-256 c51aa1fe539c3176f2bdf4b396dcc3685dd17178342cc51ec06f866664da3c0f. After `mvpt snapshot-checkpoints --update`, upload the new snapshot and pin it as input S1."
+   "detail": "hf_checkpoints.json has SHA-256 4d47231362309e2f68cf389d37e1138c93c8bca7cfb1b3ba98123000ed2205bb. After `mvpt snapshot-checkpoints --update`, upload the new snapshot and pin it as input S1."
   },
   {
    "name": "phase2_ifeval_instructions",
@@ -103323,7 +103337,7 @@
   {
    "name": "checkpoints_on_hugging_face",
    "status": "note",
-   "detail": "189 of 190 checkpoints were found on Hugging Face. Not found: SmolLM2-1.7B-Instruct-16k."
+   "detail": "190 of 190 checkpoints were found on Hugging Face. Not found: none."
   },
   {
    "name": "older_member_digest",

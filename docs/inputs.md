@@ -30,7 +30,7 @@ The sources of each input are tried in order:
 - **The records dataset**
   [`permissive-post-train/evaluation-records`](https://huggingface.co/datasets/permissive-post-train/evaluation-records)
   holds every input of the paper that is not in this repository, at revision
-  `c177faeb`: those that were only in the bucket (R6 as a copy without the GPQA
+  `cf660896`: those that were only in the bucket (R6 as a copy without the GPQA
   Diamond items), and copies of those on GitHub and in other Hugging Face
   repositories, whose original sources stay as fallbacks. Its card is
   `release/records/README.md`, and `release/records/upload.py` uploads the
@@ -65,7 +65,7 @@ The IDs are the names that the code and the results manifest give each input.
 | `R24` | `dclm_16k_reasoning_evals_per_sample.csv` | 6 MB | Protocol A records, in R13's format, of the DCLM 16K checkpoints: the 16K extension of the DCLM base and its Tulu3 SFT and DPO models, three seeds each. Received on 2026-10-28. R13 has DCLM at 4K only, so the three checkpoints join the revision's Phase 1 in cells of their own (`protocol_a.ADDITIONS`): Tables 1 and 14. R21 and R22 have no verdicts for them, so the file also holds their IFEval verdicts, instruction-level with the strict checker (confirmed by Ali Elganzory on 2026-10-29), and their LiveCodeBench v5 verdicts, as task `LiveCodeBenchv5` next to v2 (`protocol_a.OWN_VERDICTS`). The workshop paper does not use it. | [records dataset](https://huggingface.co/datasets/permissive-post-train/evaluation-records), then the bucket |
 | `R16` | `language_eval_all_models_2026-10-16.zip` | 3.1 MB | Harsh Raj's language results files for 82 checkpoints, one prompt-example seed, no per-question files. Tables 15, 30, 36, 39, 41 and 43. | [records dataset](https://huggingface.co/datasets/permissive-post-train/evaluation-records), then the bucket |
 | `R17` | `masked_models_lang_evals.zip` | 0.5 MB | Harsh Raj's language results files for five masked checkpoints, run on 2026-10-12 with the models loaded from Hugging Face. Table 43's rows with masking. | [records dataset](https://huggingface.co/datasets/permissive-post-train/evaluation-records), then the bucket |
-| `S1` | `hf_checkpoints.json` | 172 kB | The snapshot of Hugging Face model records that gives every checkpoint's parent in the manifest, taken by `mvpt snapshot-checkpoints` on 2026-10-12, updated on 2026-10-13, and updated on 2026-10-31 with the Phase 2 checkpoints uploaded on 2026-10-30. | [records dataset](https://huggingface.co/datasets/permissive-post-train/evaluation-records), then the bucket |
+| `S1` | `hf_checkpoints.json` | 173 kB | The snapshot of Hugging Face model records that gives every checkpoint's parent in the manifest, taken by `mvpt snapshot-checkpoints` on 2026-10-12, updated on 2026-10-13, and updated on 2026-10-31 with the Phase 2 checkpoints uploaded on 2026-10-30 and HuggingFaceTB's SmolLM2-1.7B-Instruct-16k. | [records dataset](https://huggingface.co/datasets/permissive-post-train/evaluation-records), then the bucket |
 | `S2-0.4b`, `S2-1.7b` | `config.json` of the 0.4B and 1.7B MV models | 1 kB each | The architectures of Table 5, from which `mvpt render-setup` computes the parameters and FLOPs. | [records dataset](https://huggingface.co/datasets/permissive-post-train/evaluation-records), then Hugging Face at a fixed revision |
 | `C-setup` | `config/paper_setup.toml` | 8 kB | The setup values of Tables 5 to 13 that no evaluation record holds, each table with its source. | this repository |
 

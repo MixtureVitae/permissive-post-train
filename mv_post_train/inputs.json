@@ -8,7 +8,7 @@
       "bytes": 415919319,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/older/logs_without_gpqa_items.zip"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/older/logs_without_gpqa_items.zip"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/logs_without_gpqa_items.zip"
@@ -27,7 +27,7 @@
       "bytes": 2862471741,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/language_eval-logs.zip"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/language/language_eval-logs.zip"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/language_eval-logs.zip"
@@ -47,7 +47,7 @@
       "bytes": 1957133428,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/logs-fineweb.zip"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/language/logs-fineweb.zip"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/logs-fineweb.zip"
@@ -66,7 +66,7 @@
       "bytes": 104748696,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/canonical_reasoning_per_sample.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/protocol_a/canonical_reasoning_per_sample.csv"
         },
         {
           "url": "https://raw.githubusercontent.com/Ali-Elganzory/permissive-llms-artifacts/8cc2e51ba5ac16ea3110f74252d6992a4853b4a0/artifacts/canonical_reasoning_per_sample.csv"
@@ -85,7 +85,7 @@
       "bytes": 16205,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/ablation_frontloading_x_permissiveness_language_evaluations.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/language/ablation_frontloading_x_permissiveness_language_evaluations.csv"
         },
         {
           "url": "https://raw.githubusercontent.com/Ali-Elganzory/permissive-llms-artifacts/8cc2e51ba5ac16ea3110f74252d6992a4853b4a0/artifacts/ablation_frontloading_x_permissiveness_language_evaluations.csv"
@@ -104,7 +104,7 @@
       "bytes": 69563,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/phase2/eval_scores.parquet"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/phase2/eval_scores.parquet"
         },
         {
           "url": "https://huggingface.co/datasets/laion/mv-posttrain-eval-responses/resolve/e820fb3461f01d330a8f278892cbd9e39e8ba710/eval_scores.parquet"
@@ -123,7 +123,7 @@
       "bytes": 2387172,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/phase2/eval_responses_meta.parquet"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/phase2/eval_responses_meta.parquet"
         },
         {
           "command": "mvpt fetch-phase2-records"
@@ -139,7 +139,7 @@
       "bytes": 177617,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/phase2/ifeval_allmetrics_persample.parquet"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/phase2/ifeval_allmetrics_persample.parquet"
         },
         {
           "url": "https://huggingface.co/datasets/laion/mv-posttrain-eval-responses/resolve/e820fb3461f01d330a8f278892cbd9e39e8ba710/ifeval_allmetrics_persample.parquet"
@@ -171,7 +171,7 @@
       "bytes": 5502076,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/phase2/answer_lengths.parquet"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/phase2/answer_lengths.parquet"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/phase2_3seed/answer_lengths.parquet"
@@ -190,7 +190,7 @@
       "bytes": 12084935,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/comma_reasoning_unified_per_sample.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/protocol_a/comma_reasoning_unified_per_sample.csv"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/comma_reasoning_unified_per_sample.csv"
@@ -206,7 +206,7 @@
       "bytes": 60948583,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/ablation_decontamination_0_4B_reasoning_per_sample.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/protocol_a/ablation_decontamination_0_4B_reasoning_per_sample.csv"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/ablation_decontamination_0_4B_reasoning_per_sample.csv"
@@ -222,7 +222,7 @@
       "bytes": 8550675,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/masked_reasoning_per_sample.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/protocol_a/masked_reasoning_per_sample.csv"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/masked_reasoning_per_sample.csv"
@@ -238,7 +238,7 @@
       "bytes": 1980453,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/fineweb_edu_16k_april_base_unified_per_sample.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/protocol_a/fineweb_edu_16k_april_base_unified_per_sample.csv"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/fineweb_edu_16k_april_base_unified_per_sample.csv"
@@ -254,7 +254,7 @@
       "bytes": 33870750,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/ifeval_strict_per_sample_protocol_a.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/protocol_a/ifeval_strict_per_sample_protocol_a.csv"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/ifeval_strict_per_sample_protocol_a.csv"
@@ -270,7 +270,7 @@
       "bytes": 17433230,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/phase1_livecodebenchv5_per_sample.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/protocol_a/phase1_livecodebenchv5_per_sample.csv"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/phase1_livecodebenchv5_per_sample.csv"
@@ -286,7 +286,7 @@
       "bytes": 3540116100,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/language_eval_all_models_3seed_2026-10-26.zip"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/language/language_eval_all_models_3seed_2026-10-26.zip"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/language_eval_all_models_3seed_2026-10-26.zip"
@@ -305,7 +305,7 @@
       "bytes": 6220923,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/dclm_16k_reasoning_evals_per_sample.csv"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/protocol_a/dclm_16k_reasoning_evals_per_sample.csv"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/dclm_16k_reasoning_evals_per_sample.csv"
@@ -321,7 +321,7 @@
       "bytes": 3064327,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/language_eval_all_models_2026-10-16.zip"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/language/language_eval_all_models_2026-10-16.zip"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/language_eval_all_models_2026-10-16.zip"
@@ -337,7 +337,7 @@
       "bytes": 494926,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/masked_models_lang_evals.zip"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/language/masked_models_lang_evals.zip"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/masked_models_lang_evals.zip"
@@ -349,18 +349,18 @@
     "S1": {
       "file": "hf_checkpoints.json",
       "local": "data/manifest/hf_checkpoints.json",
-      "sha256": "c51aa1fe539c3176f2bdf4b396dcc3685dd17178342cc51ec06f866664da3c0f",
-      "bytes": 172078,
+      "sha256": "4d47231362309e2f68cf389d37e1138c93c8bca7cfb1b3ba98123000ed2205bb",
+      "bytes": 172750,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/snapshots/hf_checkpoints.json"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/snapshots/hf_checkpoints.json"
         },
         {
           "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/manifest/hf_checkpoints.json"
         }
       ],
       "paper": true,
-      "what": "The snapshot of Hugging Face model records (repos, weight hashes, model cards, training summaries, context settings) that `mvpt snapshot-checkpoints` took on 2026-10-12 and updated on 2026-10-13 and on 2026-10-31, when it found the 58 Phase 2 checkpoints that open-sci uploaded on 2026-10-30: every checkpoint's parent in the results manifest."
+      "what": "The snapshot of Hugging Face model records (repos, weight hashes, model cards, training summaries, context settings) that `mvpt snapshot-checkpoints` took on 2026-10-12 and updated on 2026-10-13 and on 2026-10-31, when it found the 58 Phase 2 checkpoints that open-sci uploaded on 2026-10-30 and HuggingFaceTB's SmolLM2-1.7B-Instruct-16k: every checkpoint's parent in the results manifest."
     },
     "S2-0.4b": {
       "file": "ali-elganzory__0.4b-mixturevitae-v1-decontaminated-300B-4096.config.json",
@@ -369,7 +369,7 @@
       "bytes": 941,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/setup/ali-elganzory__0.4b-mixturevitae-v1-decontaminated-300B-4096.config.json"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/setup/ali-elganzory__0.4b-mixturevitae-v1-decontaminated-300B-4096.config.json"
         },
         {
           "url": "https://huggingface.co/ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096/resolve/ed22003df4e646bef492c442461db457b17ccbfe/config.json"
@@ -385,7 +385,7 @@
       "bytes": 951,
       "sources": [
         {
-          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/setup/open-sci__open-sci-ref-v0.02-1.7b-mixturevitae-300B-4096.config.json"
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/cf66089604d3578f89247737cf48a3e41e0bfe97/setup/open-sci__open-sci-ref-v0.02-1.7b-mixturevitae-300B-4096.config.json"
         },
         {
           "url": "https://huggingface.co/open-sci/open-sci-ref-v0.02-1.7b-mixturevitae-300B-4096/resolve/3db1bd4469c32f312ec8cd40c76defca3ffb48bb/config.json"
