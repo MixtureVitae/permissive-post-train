@@ -1,0 +1,189 @@
+# The setup values of the paper (Tables 17 to 25 of the -10 revision) that no
+# evaluation record holds. `mvpt render-setup` prints them, computes every
+# column that follows from others (sums, ratios, parameter counts, FLOPs,
+# cooldown steps, the effective batch), and checks the values that a record
+# also gives. Each table names where its values come from.
+#
+# A value here is typed in once, and the tables and the text read it from the
+# generated files. Change a value here, never in the paper.
+
+# Table 17
+[training_schedules]
+label = "tab:training_schedules"
+source = "open-sci-ref-0.01 (arXiv 2509.09009v3), Table 3, for the 300B row. The 100B row is not in it, and no record holds it."
+cooldown_fraction = 0.2
+sequence_length = 4096
+
+[[training_schedules.rows]]
+tokens = "100B"
+batch_tokens = "4.12M"
+iterations = 23842
+learning_rate = "4\\times10^{-3}"
+warmup = 8334
+
+[[training_schedules.rows]]
+tokens = "300B"
+batch_tokens = "4.12M"
+iterations = 72661
+learning_rate = "4\\times10^{-3}"
+warmup = 25000
+
+# Table 18. Layers, hidden size, heads, FFN size and the parameters come from
+# the models' configurations (inputs S2-0.4b and S2-1.7b). The memory is
+# open-sci-ref's "GPU memory usage", which no record of ours holds.
+[architecture]
+label = "tab:opensciref_scales"
+source = "The models' config.json on Hugging Face, and open-sci-ref-0.01, Table 1, for the memory."
+
+[[architecture.rows]]
+config = "S2-0.4b"
+memory = "2.88\\,\\mathrm{GB}"
+
+[[architecture.rows]]
+config = "S2-1.7b"
+memory = "9.884\\,\\mathrm{GB}"
+
+# Table 19
+[ot30k_sft_hyperparams]
+label = "tab:ot30k_sft_hyperparams"
+source = "The LLaMA-Factory configuration of the OT30K runs, as the -10 revision prints it. No record of ours holds it."
+per_device_batch = 1
+gradient_accumulation = 4
+nodes = 8
+gpus_per_node = 4
+rows = [
+  ["Dataset", "\\texttt{open-thoughts/OpenThoughts-3} (30k samples)"],
+  ["Stage / fine-tuning type", "SFT, full-parameter"],
+  ["Trainer / framework", "LLaMA-Factory"],
+  ["Distributed strategy", "DeepSpeed ZeRO-3"],
+  ["Precision", "BF16"],
+  ["Liger Kernel", "enabled"],
+  ["Attention backend", "FA2 (Llama/Qwen) / SDPA (opensci-arch)"],
+  ["", "\\addlinespace"],
+  ["Sequence length (cutoff\\_len)", "16{,}384"],
+  ["Per-device batch size", "{per_device_batch}"],
+  ["Gradient accumulation steps", "{gradient_accumulation}"],
+  ["World size", "{world_size} H100 ({nodes} nodes $\\times$ {gpus_per_node})"],
+  ["Effective global batch size", "{effective_batch}"],
+  ["", "\\addlinespace"],
+  ["Optimizer", "AdamW (LLaMA-Factory default)"],
+  ["Learning rate", "$4 \\times 10^{-5}$"],
+  ["LR schedule", "Cosine"],
+  ["Warmup ratio", "0.1"],
+  ["Epochs", "5"],
+  ["Group by length", "true"],
+  ["Seed", "42"],
+]
+
+# Table 20
+[ot30k_sft_gpu_hours]
+label = "tab:ot30k_sft_gpu_hours"
+source = "The authors' accounting of the OT30K runs on MareNostrum 5, as the -10 revision prints it. No record of ours holds it."
+nodes = 8
+gpus_per_node = 4
+groups = [
+  [
+    ["MixtureVitae-1.7B", "SDPA", 106],
+    ["MixtureVitae-1.7B + SFT-Tulu3", "SDPA", 106],
+    ["MixtureVitae-1.7B + DPO-Tulu3", "SDPA", 105],
+    ["Comma0.1-1.7B + SFT-Tulu3", "SDPA", 105],
+    ["Comma0.1-1.7B + DPO-Tulu3", "SDPA", 158],
+    ["FineWeb-1.7B + SFT-Tulu3", "SDPA", 106],
+    ["Nemotron-1.7B + SFT-Tulu3", "SDPA", 106],
+    ["Nemotron-1.7B + DPO-Tulu3", "SDPA", 106],
+  ],
+  [
+    ["Qwen3-1.7B-Base", "FA2", 60],
+    ["Qwen3-1.7B-Base + SFT-Tulu3", "FA2", 57],
+    ["Qwen3-1.7B-Base + DPO-Tulu3", "FA2", 57],
+    ["Qwen2.5-1.5B", "FA2", 53],
+    ["Qwen2.5-1.5B + SFT-Tulu3", "FA2", 53],
+    ["Qwen2.5-1.5B + DPO-Tulu3", "FA2", 52],
+    ["SmolLM2-1.7B", "FA2", 48],
+    ["SmolLM2-1.7B-Instruct", "FA2", 48],
+    ["SmolLM2-1.7B + SFT-Tulu3", "FA2", 44],
+    ["SmolLM2-1.7B + DPO-Tulu3", "FA2", 47],
+  ],
+]
+
+# Table 21
+[long_ctx_gpu_hours]
+label = "tab:long_ctx_extension_gpu_hours"
+source = "The authors' accounting of the context extensions on JUPITER, as the -10 revision prints it. No record of ours holds it."
+nodes = 2
+gpus_per_node = 4
+rows = [
+  ["MixtureVitae-1.7B", "SDPA", 12],
+  ["Comma0.1-1.7B", "SDPA", 12],
+  ["DCLM-1.7B", "SDPA", 12],
+  ["FineWeb-Edu-1.7B", "SDPA", 12],
+  ["Nemotron-HQ-1.7B", "SDPA", 12],
+]
+
+# Table 22. The tokens of the external models are those their reports give.
+[budget]
+label = "tab:budget"
+source = "300B tokens for the open-sci-ref models, and the pretraining tokens the SmolLM2, Qwen2.5 and Qwen3 reports give."
+columns = [
+  ["{MV,Comma0.1,FW-Edu,Nemotron}", 0.3],
+  ["SmolLM2", 11],
+  ["Qwen2.5-1.5B", 18],
+  ["Qwen3-1.7B", 36],
+]
+
+# Tables 23 and 24, one row per task: abbreviation, task, citation key, metric,
+# shots, and for Protocol A the maximum of new tokens. Protocol B's maximum is
+# read from its records (input R14-meta), and its decoding from the manifest.
+[protocol_a]
+label = "tab:eval-settings-A"
+source = "The evaluation configuration of the Protocol A runs, as the -10 revision prints it. R13 holds no generation settings. IFEval is scored with the strict checker, from R21 (2026-10-24). GSM8K is scored with the flexible-extract filter, as under Protocol B: R13's scores match the flexible-extract scores of R6, not the strict-match ones (docs/investigations/gsm8k_protocol_a_metric.md). LiveCodeBench is v5, on the 369 problems Protocol B runs, from R22 (2026-10-26), where R13 ran v2. R22 holds no generation settings either, so its maximum of new tokens is assumed to be the v2 runs'."
+decoding = "Greedy"
+tasks = [
+  ["A24", "AIME24", "aime2024", "Accuracy", 0, 32768],
+  ["A25", "AIME25", "aime2025", "Accuracy", 0, 32768],
+  ["AMC", "AMC23", "maa2023amc", "Accuracy", 0, 32768],
+  ["M500", "MATH500", "hendrycks2021math", "Accuracy", 0, 32768],
+  ["GSM8K", "GSM8K", "cobbe2021training", "Exact match (flexible extract)", 5, 2048],
+  ["HE", "HumanEval", "chen2021evaluating", "\\texttt{python\\_pass@1}", 0, 2048],
+  ["LCB", "LiveCodeBench (v5)", "jain2024livecodebench", "Pass@1", 0, 32768],
+  ["MBPP", "MBPP", "austin2021program", "Functional Pass@1", 3, 2048],
+  ["GPQA", "GPQA-Diamond", "rein2024gpqa", "Accuracy", 0, 32768],
+  ["JEE", "JEEBench", "arora2023have", "Accuracy (JEE score)", 0, 32768],
+  ["IFE", "IFEval", "zhou2023instruction", "Instruction-level accuracy (strict)", 0, 2048],
+]
+
+[protocol_b]
+label = "tab:eval-settings-B"
+source = "marianna13's note of 2026-10-07, and her revision of 2026-10-19 for IFEval, which the paper reads at the instruction level with the strict checker. The maximum of new tokens is read from R14-meta, and the decoding from the results manifest."
+tasks = [
+  ["A24", "AIME24", "aime2024", "Accuracy", 0, "AIME24"],
+  ["A25", "AIME25", "aime2025", "Accuracy", 0, "AIME25"],
+  ["AMC", "AMC23", "maa2023amc", "Accuracy", 0, "AMC23"],
+  ["M500", "MATH500", "hendrycks2021math", "Accuracy", 0, "MATH500"],
+  ["GSM8K", "GSM8K", "cobbe2021training", "Exact match (flexible extract)", 5, "GSM8K"],
+  ["HE", "HumanEval", "chen2021evaluating", "Pass@1", 0, "HumanEval"],
+  ["LCB", "LiveCodeBench (v5)", "jain2024livecodebench", "Pass@1", 0, "LiveCodeBenchv5"],
+  ["MBPP", "MBPP", "austin2021program", "Pass@1", 0, "MBPP"],
+  ["GPQA", "GPQA-Diamond", "rein2024gpqa", "Accuracy", 0, "GPQADiamond"],
+  ["JEE", "JEEBench", "arora2023have", "Accuracy (JEE score)", 0, "JEEBench"],
+  ["IFE", "IFEval", "zhou2023instruction", "Instruction-level accuracy (strict)", 0, "IFEval"],
+]
+
+# Table 25: abbreviation, task, citation key. The shots and the metric are
+# read from the language records' settings (input R13-language).
+[language_benchmarks]
+label = "tab:eval_settings_general"
+source = "The shot count and metric of each task are those of the language runs (R13-language), which R8, R16 and R17 also use."
+tasks = [
+  ["mmlu", "MMLU", "MMLU", "hendrycks2020measuring"],
+  ["hellaswag", "HellaS", "HellaSwag", "zellers2019hellaswag"],
+  ["commonsense_qa", "CSQA", "CommonSenseQA", "talmor2019commonsenseqa"],
+  ["arc_challenge", "ARC-C", "ARC-Challenge", "clark2018think"],
+  ["arc_easy", "ARC-E", "ARC-Easy", "clark2018think"],
+  ["piqa", "PIQA", "PIQA", "bisk2020piqa"],
+  ["boolq", "BoolQ", "BoolQ", "clark2019boolq"],
+  ["winogrande", "WinoG", "Winogrande", "sakaguchi2020winogrande"],
+  ["openbookqa", "OBQA", "OpenBookQA", "mihaylov2018openbookqa"],
+  ["copa", "COPA", "COPA", "copa"],
+  ["lambada_openai", "LAMBADA", "LAMBADA", "paperno2016lambada"],
+]

@@ -1,0 +1,21 @@
+name: reproduce
+
+# Rebuilds every generated file of the paper from the pinned inputs, which are
+# all public, on a clean runner, and compares them with results/: about 9 GB
+# of downloads and 15 minutes of building. Run it by hand from the Actions tab.
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-lock.txt && pip install -e ".[test]"
+      - run: mvpt fetch-inputs
+      - run: mvpt check-inputs
+      - run: mvpt build --check

@@ -1,0 +1,4 @@
+table,check,stated,computed,result
+Table 17,100B: tokens per iteration,4.12M,4.194M (1024.0 sequences of 4096),differs
+Table 17,300B: tokens per iteration,4.12M,4.129M (1008.0 sequences of 4096),ok
+Tables 23 and 24,GSM8K is scored the same way under both protocols,Exact match (flexible extract),Exact match (flexible extract),ok

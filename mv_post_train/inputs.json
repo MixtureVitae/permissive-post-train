@@ -1,0 +1,554 @@
+{
+  "about": "Every input the paper's tables, figures and text numbers are built from, and the inputs of the analyses in docs/. Each one is pinned by its SHA-256 and has the places it can be fetched from, in order. `mvpt fetch-inputs` downloads them, `mvpt check-inputs` checks the local copies, and every command reads them through mv_post_train/inputs.py. The IDs are the names that the code and the results manifest give each input. docs/inputs.md describes each input.",
+  "inputs": {
+    "R6": {
+      "file": "logs_without_gpqa_items.zip",
+      "local": "artifacts/logs_without_gpqa_items.zip",
+      "sha256": "2f9db28c0e7a8485606846c0bd66f523e792a4a38691c057349884fbcb4361d9",
+      "bytes": 415919319,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/older/logs_without_gpqa_items.zip"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/logs_without_gpqa_items.zip"
+        }
+      ],
+      "member_digests": {
+        "older_tables": "2414e30b562f4f9dc65f50be8c39a0d9e762fceb65d43fadfac2cb49fd3a4acf"
+      },
+      "paper": true,
+      "what": "lm-eval-harness and evalchemy results files of the older evaluations (January to May 2026), which the results manifest keeps and no table of the paper prints since 2026-10-19. A copy of the bucket's logs.zip without the GPQA Diamond items, which GPQA asks not to publish in plain text, written by release/records/strip_gpqa.py; every score is the same."
+    },
+    "R8": {
+      "file": "language_eval-logs.zip",
+      "local": "data/language_logs/language_eval-logs.zip",
+      "sha256": "0492e8a69dd6d86cb265e208c78a5d08ad3ddc9471058e329c83ce3e715e8095",
+      "bytes": 2862471741,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/language_eval-logs.zip"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/language_eval-logs.zip"
+        }
+      ],
+      "member_digests": {
+        "comma_language": "3b8dc8945708b6661377e2403cae22130c44e16ca87aee48d1639e60483e7a47",
+        "language_suite": "f22e1c142b62c44fd1466b548045d4bf5a9fa147b862c57d7c25faec2b3caec5"
+      },
+      "paper": true,
+      "what": "Harsh Raj's language results with per-question files and three prompt-example seeds, run in May 2026, for 19 checkpoints of MV, Comma0.1 and Nemotron-CC-HQ: Tables 15, 17, 19, 22, 30 to 32, 39 and 43, and Figure 2's language panel."
+    },
+    "R8-fineweb": {
+      "file": "logs-fineweb.zip",
+      "local": "data/language_logs/logs-fineweb.zip",
+      "sha256": "d940f546b4dc9d3e9f593f696b8d98d17b9a10f7d260896d765082ef39f12523",
+      "bytes": 1957133428,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/logs-fineweb.zip"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/logs-fineweb.zip"
+        }
+      ],
+      "paper": true,
+      "what": "The same for the 7 FineWeb-Edu checkpoints, uploaded on 2026-10-07: Tables 15, 17, 19, 22, 30 and 31, and Figure 2's language panel.",
+      "member_digests": {
+        "language_suite": "ddc8dcad2a2e4cd520301948d2e6c7f6bd58a9f179426004d07112f01aebd7ea"
+      }
+    },
+    "R13": {
+      "file": "canonical_reasoning_per_sample.csv",
+      "local": "data/workshop/canonical_reasoning_per_sample.csv",
+      "sha256": "867ff6d6782bbfcfc881b0ba74c55d04aac494381b7a02877556f3b0ab7c442c",
+      "bytes": 104748696,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/canonical_reasoning_per_sample.csv"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Ali-Elganzory/permissive-llms-artifacts/8cc2e51ba5ac16ea3110f74252d6992a4853b4a0/artifacts/canonical_reasoning_per_sample.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/canonical_reasoning_per_sample.csv"
+        }
+      ],
+      "paper": true,
+      "what": "The Protocol A records: one score per checkpoint, seed, task and question, for 57 checkpoints. Tables 1, 14, 16 to 18, 20, 21, 38 (its decontaminated rows) and 42 (its rows without masking), Figures 2 to 4, and the results manifest."
+    },
+    "R13-language": {
+      "file": "ablation_frontloading_x_permissiveness_language_evaluations.csv",
+      "local": "data/workshop/ablation_frontloading_x_permissiveness_language_evaluations.csv",
+      "sha256": "e108272f2227f1305780e79e5e56db682d40e4f71dbc35beee0c2a30c9b5b1cd",
+      "bytes": 16205,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/ablation_frontloading_x_permissiveness_language_evaluations.csv"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Ali-Elganzory/permissive-llms-artifacts/8cc2e51ba5ac16ea3110f74252d6992a4853b4a0/artifacts/ablation_frontloading_x_permissiveness_language_evaluations.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/ablation_frontloading_x_permissiveness_language_evaluations.csv"
+        }
+      ],
+      "paper": true,
+      "what": "One language score per task for the twelve checkpoints of the front-loading study without Comma0.1, and the shot count and metric of each task. It gives the shot counts and metrics of Table 13, and it is a second source for most language cells of Tables 17 and 22, which print the runs of R8, R8-fineweb and R23."
+    },
+    "R14-scores": {
+      "file": "eval_scores.parquet",
+      "local": "data/phase2_3seed/eval_scores.parquet",
+      "sha256": "666002c3c4e982bdfbed636e441707c7129cc900b74a6b500a5fa07bf6cacfe9",
+      "bytes": 69563,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/phase2/eval_scores.parquet"
+        },
+        {
+          "url": "https://huggingface.co/datasets/laion/mv-posttrain-eval-responses/resolve/e820fb3461f01d330a8f278892cbd9e39e8ba710/eval_scores.parquet"
+        },
+        {
+          "command": "mvpt fetch-phase2-records"
+        }
+      ],
+      "paper": true,
+      "what": "marianna13's three-seed Phase 2 scores at revision e820fb34 of laion/mv-posttrain-eval-responses (2026-10-19), with IFEval under all four definitions: the results manifest's Phase 2 results, with IFEval at the instruction level, strict."
+    },
+    "R14-meta": {
+      "file": "eval_responses_meta.parquet",
+      "local": "data/phase2_3seed/eval_responses_meta.parquet",
+      "sha256": "59872f7e7a31bab697ead8e6f65fdc838e1e97eebf7574def91253fa123a748c",
+      "bytes": 2387172,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/phase2/eval_responses_meta.parquet"
+        },
+        {
+          "command": "mvpt fetch-phase2-records"
+        }
+      ],
+      "paper": true,
+      "what": "The small columns of the same revision's eval_responses.parquet (model, stage, task, question, seed, correctness, checkpoint folder, token limit), read with range requests and written with the pinned pyarrow: the manifest's checkpoint folders and Table 4's intervals."
+    },
+    "R14-ifeval": {
+      "file": "ifeval_allmetrics_persample.parquet",
+      "local": "data/phase2_3seed/ifeval_allmetrics_persample.parquet",
+      "sha256": "1dd7734ef79a900c270bcc99a87f902c5fe79fd7c5af24ea8ac5beb15be9adf9",
+      "bytes": 177617,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/phase2/ifeval_allmetrics_persample.parquet"
+        },
+        {
+          "url": "https://huggingface.co/datasets/laion/mv-posttrain-eval-responses/resolve/e820fb3461f01d330a8f278892cbd9e39e8ba710/ifeval_allmetrics_persample.parquet"
+        },
+        {
+          "command": "mvpt fetch-phase2-records"
+        }
+      ],
+      "paper": true,
+      "what": "The same revision's IFEval counts per prompt and seed: instructions, and those followed with the strict and the loose checker. The manifest's check that the released instruction-level IFEval reproduces from the questions."
+    },
+    "R14-responses": {
+      "file": "eval_responses.parquet",
+      "local": "data/phase2_3seed/eval_responses.parquet",
+      "sha256": "dee5a5f7212d6c9bfceeda4fa9c2dfc508556250f5f53b838c385b228ef3da6e",
+      "bytes": 10113077415,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/laion/mv-posttrain-eval-responses/resolve/e820fb3461f01d330a8f278892cbd9e39e8ba710/eval_responses.parquet"
+        }
+      ],
+      "paper": false,
+      "what": "The whole answer file of the same revision (10 GB, most of it answer text). Only `mvpt measure-phase2-answers` reads it, to write R14-lengths."
+    },
+    "R14-lengths": {
+      "file": "answer_lengths.parquet",
+      "local": "data/phase2_3seed/answer_lengths.parquet",
+      "sha256": "9863758e52d19abbd7cea2209fe0ecfdc553e1e0cdca773f94944ab885cd0266",
+      "bytes": 5502076,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/phase2/answer_lengths.parquet"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/phase2_3seed/answer_lengths.parquet"
+        },
+        {
+          "command": "mvpt measure-phase2-answers"
+        }
+      ],
+      "paper": true,
+      "what": "One row per sampled answer of the same revision (1,162,209), without its text: its length in bytes and, for answers long enough to reach the token limit, in its checkpoint's tokens, and whether the grader found an answer and a code block. Written by `mvpt measure-phase2-answers` from R14-responses with tokenizers 0.22.1 and the pinned pyarrow, on 2026-10-24, and copied to the bucket on 2026-10-25. The N4 tables of the Phase 2 analyses."
+    },
+    "R15": {
+      "file": "comma_reasoning_unified_per_sample.csv",
+      "local": "data/workshop/comma_reasoning_unified_per_sample.csv",
+      "sha256": "a8e33f163ce423f91a42520829714d57fba9dfa477c5a8fc757d03b2b0c11a9f",
+      "bytes": 12084935,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/comma_reasoning_unified_per_sample.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/comma_reasoning_unified_per_sample.csv"
+        }
+      ],
+      "paper": true,
+      "what": "Protocol A records of the front-loaded Comma0.1 arm (six checkpoints), received 2026-10-12, in R13's format: Tables 17, 18, 20 and 21, Figures 2 to 4, and the results manifest."
+    },
+    "R18": {
+      "file": "ablation_decontamination_0_4B_reasoning_per_sample.csv",
+      "local": "data/workshop/ablation_decontamination_0_4B_reasoning_per_sample.csv",
+      "sha256": "021b81d039ec38b2e54882c2044f2fda2e0eefef1cf6551986c52735b3ba30e6",
+      "bytes": 60948583,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/ablation_decontamination_0_4B_reasoning_per_sample.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/ablation_decontamination_0_4B_reasoning_per_sample.csv"
+        }
+      ],
+      "paper": true,
+      "what": "Protocol A records, in R13's format, of the 36 checkpoints of the older experiments that R13 lacks: the 100B mixture ablation, the non-decontaminated MV and the 0.4B comparison. Received on 2026-10-18. Tables 35, 37, 38 (its rows without decontamination) and 40."
+    },
+    "R19": {
+      "file": "masked_reasoning_per_sample.csv",
+      "local": "data/workshop/masked_reasoning_per_sample.csv",
+      "sha256": "8084115c57e819f1ec743e2697c5652c956da3ae2b50a20b1c65fc54b96d85fd",
+      "bytes": 8550675,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/masked_reasoning_per_sample.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/masked_reasoning_per_sample.csv"
+        }
+      ],
+      "paper": true,
+      "what": "Protocol A records, in R13's format and on the same questions, of the four masked MV checkpoints: copies of the `laion/*-masked` models with the same weights, named `ali-elganzory/*-masked-laion-eval`. Received on 2026-10-19. Table 42's rows with masking."
+    },
+    "R20": {
+      "file": "fineweb_edu_16k_april_base_unified_per_sample.csv",
+      "local": "data/workshop/fineweb_edu_16k_april_base_unified_per_sample.csv",
+      "sha256": "153341e3f95af1cd5a89517d0f876b05ccdc901036b5971fde517a5dee330020",
+      "bytes": 1980453,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/fineweb_edu_16k_april_base_unified_per_sample.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/fineweb_edu_16k_april_base_unified_per_sample.csv"
+        }
+      ],
+      "paper": true,
+      "what": "Protocol A records, in R13's format and on the same questions, of the April FineWeb-Edu 16K base (`…-300B-4096-4096-longsft_16k`), the model its SFT and DPO rows were trained from. Received on 2026-10-23. It replaces R13's August 16K model in Phase 1 and the front-loading study: Tables 1, 14, 17, 18, 20 and 21, Figures 2 to 4."
+    },
+    "R21": {
+      "file": "ifeval_strict_per_sample_protocol_a.csv",
+      "local": "data/workshop/ifeval_strict_per_sample_protocol_a.csv",
+      "sha256": "eac0a09812bc18aabbb4f632a2f662d4ba4bdfe70e0feb8fbd578ac8962d2e00",
+      "bytes": 33870750,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/ifeval_strict_per_sample_protocol_a.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/ifeval_strict_per_sample_protocol_a.csv"
+        }
+      ],
+      "paper": true,
+      "what": "Protocol A IFEval verdicts with the strict checker, in R13's format: one row per checkpoint, seed and instruction, for 112 checkpoints, on the 769 instructions of R13. Received on 2026-10-24. R13, R15, R18, R19 and R20 score IFEval with the loose checker. The revision takes every Protocol A IFEval score from here, for every checkpoint of those files but R13's August FineWeb-Edu 16K model, which no table uses, and for none of R24's, which holds its own: Tables 1, 14, 16 to 18, 20, 21, 35, 37, 38, 40 and 42, Figures 2 to 4. The workshop paper keeps R13's loose verdicts."
+    },
+    "R22": {
+      "file": "phase1_livecodebenchv5_per_sample.csv",
+      "local": "data/workshop/phase1_livecodebenchv5_per_sample.csv",
+      "sha256": "80b2d27da77a9ba168998ab7adbd4aabe3768b3c51c6e0c1e0261dc811e4f132",
+      "bytes": 17433230,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/phase1_livecodebenchv5_per_sample.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/phase1_livecodebenchv5_per_sample.csv"
+        }
+      ],
+      "paper": true,
+      "what": "Protocol A LiveCodeBench v5 verdicts from Ali Elganzory, in R13's format: one row per checkpoint, seed and problem, for 112 checkpoints, on the 369 problems of LiveCodeBench v5, the same problems as Protocol B (R14). Received on 2026-10-26. R13, R15, R18, R19 and R20 run LiveCodeBench v2 (511 problems). The revision takes every Protocol A LiveCodeBench score from here, for every checkpoint of those files but R13's August FineWeb-Edu 16K model, which no table uses. The workshop paper keeps R13's v2 verdicts."
+    },
+    "R23": {
+      "file": "language_eval_all_models_3seed_2026-10-26.zip",
+      "local": "data/language_logs/language_eval_all_models_3seed_2026-10-26.zip",
+      "sha256": "1a0422576760c621be2d9af208808318855ade27598f0f0f36cb12bd8dbc6ec5",
+      "bytes": 3540116100,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/language_eval_all_models_3seed_2026-10-26.zip"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/language_eval_all_models_3seed_2026-10-26.zip"
+        }
+      ],
+      "member_digests": {
+        "language_suite": "d939ad7af8d603bf4fd184ef9fb7d739c340170cd28da7bf5b78025ff8775826"
+      },
+      "paper": true,
+      "what": "Harsh Raj's language runs of 2026-10-26, received on 2026-10-27: 24 checkpoints with three prompt-example seeds (1234, 42 and 2025) and per-question files, and 41 checkpoints with one seed and no per-question files, whose results files are R16's. The front-loading study reads its nine language cells without R8 logs from here, seed 1234 for Tables 17 and 22 and Figure 2 and all three seeds for the intervals of its language contrasts."
+    },
+    "R24": {
+      "file": "dclm_16k_reasoning_evals_per_sample.csv",
+      "local": "data/workshop/dclm_16k_reasoning_evals_per_sample.csv",
+      "sha256": "fcb6bd7b79f3abffdae58eb98e9a41d7234e5be12be7c7962d7cfdb457f807a0",
+      "bytes": 6220923,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/protocol_a/dclm_16k_reasoning_evals_per_sample.csv"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/dclm_16k_reasoning_evals_per_sample.csv"
+        }
+      ],
+      "paper": true,
+      "what": "Protocol A records of the DCLM 16K checkpoints, in R13's format and on the same questions: the 16K extension of the DCLM base and its Tulu3 SFT and DPO models, three seeds each. Received on 2026-10-28. R13 has DCLM at 4K only, and R21 and R22 have no verdicts for these checkpoints, so the file also holds their IFEval verdicts, instruction-level with the strict checker (confirmed by Ali Elganzory on 2026-10-29), and their LiveCodeBench v5 verdicts (task LiveCodeBenchv5) next to v2. The three checkpoints join Phase 1 in the revision: Tables 1 and 14. The workshop paper does not use them."
+    },
+    "R16": {
+      "file": "language_eval_all_models_2026-10-16.zip",
+      "local": "data/workshop/language_eval_all_models_2026-10-16.zip",
+      "sha256": "bb0b7b1a2fc7d7800e0299b23fa5c58f6bad2b4ce89ef566240397bf8d336a5b",
+      "bytes": 3064327,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/language_eval_all_models_2026-10-16.zip"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/workshop/language_eval_all_models_2026-10-16.zip"
+        }
+      ],
+      "paper": true,
+      "what": "Harsh Raj's language results files for 82 checkpoints, one prompt-example seed, no per-question files. This version of 2026-10-16 replaces the 2026-10-14 zip: its 23 runs with 0 shots are run again with Table 13's shot counts. Tables 15, 30, 36, 39, 41 and 43."
+    },
+    "R17": {
+      "file": "masked_models_lang_evals.zip",
+      "local": "data/workshop/masked_models_lang_evals.zip",
+      "sha256": "c53217be762caa5beff0b50098bdb1f6fb9ccc169137fec1b42de5103a905024",
+      "bytes": 494926,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/language/masked_models_lang_evals.zip"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/masked_models_lang_evals.zip"
+        }
+      ],
+      "paper": true,
+      "what": "Harsh Raj's language results files for five masked checkpoints, run on 2026-10-12 with the models loaded from Hugging Face, uploaded on 2026-10-13: Table 43's rows with masking."
+    },
+    "S1": {
+      "file": "hf_checkpoints.json",
+      "local": "data/manifest/hf_checkpoints.json",
+      "sha256": "c51aa1fe539c3176f2bdf4b396dcc3685dd17178342cc51ec06f866664da3c0f",
+      "bytes": 172078,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/snapshots/hf_checkpoints.json"
+        },
+        {
+          "gcs": "gs://mayvic-cc-gating/projects/mv-post-train/data/manifest/hf_checkpoints.json"
+        }
+      ],
+      "paper": true,
+      "what": "The snapshot of Hugging Face model records (repos, weight hashes, model cards, training summaries, context settings) that `mvpt snapshot-checkpoints` took on 2026-10-12 and updated on 2026-10-13 and on 2026-10-31, when it found the 58 Phase 2 checkpoints that open-sci uploaded on 2026-10-30: every checkpoint's parent in the results manifest."
+    },
+    "S2-0.4b": {
+      "file": "ali-elganzory__0.4b-mixturevitae-v1-decontaminated-300B-4096.config.json",
+      "local": "data/setup/ali-elganzory__0.4b-mixturevitae-v1-decontaminated-300B-4096.config.json",
+      "sha256": "24a64d86ef895420f4a33a1c027e6e1326cf9f2c1bc3d42c3a39d87019e2a56e",
+      "bytes": 941,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/setup/ali-elganzory__0.4b-mixturevitae-v1-decontaminated-300B-4096.config.json"
+        },
+        {
+          "url": "https://huggingface.co/ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096/resolve/ed22003df4e646bef492c442461db457b17ccbfe/config.json"
+        }
+      ],
+      "paper": true,
+      "what": "The configuration of `ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096` at revision ed22003d, the 0.4B architecture of Table 5."
+    },
+    "S2-1.7b": {
+      "file": "open-sci__open-sci-ref-v0.02-1.7b-mixturevitae-300B-4096.config.json",
+      "local": "data/setup/open-sci__open-sci-ref-v0.02-1.7b-mixturevitae-300B-4096.config.json",
+      "sha256": "b2d8faeee3c63b0355d0b17be3a2a1adc29d112a7be962ade812730203a3f5d9",
+      "bytes": 951,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/permissive-post-train/evaluation-records/resolve/c177faeb442c22f3dd29fb8f2070ab0d6542acd7/setup/open-sci__open-sci-ref-v0.02-1.7b-mixturevitae-300B-4096.config.json"
+        },
+        {
+          "url": "https://huggingface.co/open-sci/open-sci-ref-v0.02-1.7b-mixturevitae-300B-4096/resolve/3db1bd4469c32f312ec8cd40c76defca3ffb48bb/config.json"
+        }
+      ],
+      "paper": true,
+      "what": "The configuration of `open-sci/open-sci-ref-v0.02-1.7b-mixturevitae-300B-4096` at revision 3db1bd44, the 1.7B architecture of Table 5."
+    },
+    "R3": {
+      "file": "mv_aime24_amc23_best_responses.parquet",
+      "local": "data/laion/mv_aime24_amc23_best_responses.parquet",
+      "sha256": "5a1589e81e4a18a7469ee712e920c91d0e24ea58cc039dc998735392ae0a6811",
+      "bytes": 12865184,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/laion/mv-posttrain-eval-responses/resolve/481cf954ed2542a82eae292e03c0125bc34927ef/mv_aime24_amc23_best_responses.parquet"
+        }
+      ],
+      "paper": false,
+      "what": "A replacement file for MV's AIME and AMC answers (`mvpt aime-decoding-variance`, `mvpt parse-phase2 --mv-best`)."
+    },
+    "R4": {
+      "file": "eval_responses.parquet",
+      "local": "data/laion/eval_responses.parquet",
+      "sha256": "d433490f19210112d6f23829a571b24f633858dbb25e2e90dffe1ee09077f4f5",
+      "bytes": 1536727286,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/laion/mv-posttrain-eval-responses/resolve/481cf954ed2542a82eae292e03c0125bc34927ef/eval_responses.parquet"
+        }
+      ],
+      "paper": false,
+      "what": "Every saved Phase 2 answer at revision 481cf954, for older analyses."
+    },
+    "R1-wide": {
+      "file": "eval_scores_wide.csv",
+      "local": "data/laion/eval_scores_wide.csv",
+      "sha256": "08a3a9bfbc17b3356140c021e85da5156086af7b640276e15f6e6f2423652cad",
+      "bytes": 6145,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/laion/mv-posttrain-eval-responses/resolve/481cf954ed2542a82eae292e03c0125bc34927ef/eval_scores_wide.csv"
+        }
+      ],
+      "paper": false,
+      "what": "The released Phase 2 score grid that `mvpt released-scores` compares against."
+    },
+    "ifeval-prompts": {
+      "file": "ifeval_input_data.jsonl",
+      "local": "data/laion/ifeval_input_data.jsonl",
+      "sha256": "6a85310ca8ce15eff755aa08a3a4ff931c7e273e7515ebb3c492ea85fd8288f2",
+      "bytes": 207111,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/google/IFEval/resolve/966cd89545d6b6acfd7638bc708b98261ca58e84/ifeval_input_data.jsonl"
+        }
+      ],
+      "paper": false,
+      "what": "The IFEval prompts and instruction arguments, for `mvpt ifeval-rescore`."
+    },
+    "R7-greedy-final": {
+      "file": "final_scores.csv",
+      "local": "data/paper_decoding_3seeds/final_scores.csv",
+      "sha256": "59697ecb89a332a27048dcae26801cddeffd2becb1b4382adc962e5d3d0d60f6",
+      "bytes": 107449,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/ali-elganzory/mv-posttraining-scores/resolve/24d1f140ee04dadd9fa3e7b451bdc705fc9aeef5/phase1/paper-decoding-3-seeds/final_scores.csv"
+        }
+      ],
+      "paper": false,
+      "what": "The three-seed Phase 1 grid at the submitted decoding (July settings)."
+    },
+    "R7-greedy-metric": {
+      "file": "metric_scores.csv",
+      "local": "data/paper_decoding_3seeds/metric_scores.csv",
+      "sha256": "10e1be1b58aa70d2e596975862fb6485561475912a90d60b2c201364b55727d3",
+      "bytes": 151154,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/ali-elganzory/mv-posttraining-scores/resolve/24d1f140ee04dadd9fa3e7b451bdc705fc9aeef5/phase1/paper-decoding-3-seeds/metric_scores.csv"
+        }
+      ],
+      "paper": false,
+      "what": "The same grid: scores per metric."
+    },
+    "R7-greedy-items": {
+      "file": "per_sample_scores.csv",
+      "local": "data/paper_decoding_3seeds/per_sample_scores.csv",
+      "sha256": "716c244cb8adaaa002c576feeed35635728dff2201de1bd3d220d137c073e21e",
+      "bytes": 23551129,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/ali-elganzory/mv-posttraining-scores/resolve/24d1f140ee04dadd9fa3e7b451bdc705fc9aeef5/phase1/paper-decoding-3-seeds/per_sample_scores.csv"
+        }
+      ],
+      "paper": false,
+      "what": "The same grid: per-question scores for 7 tasks."
+    },
+    "R7-sampling-final": {
+      "file": "final_scores.csv",
+      "local": "data/sampling07/final_scores.csv",
+      "sha256": "0638659c4c0fe5875b4de559fa7e28621bbc9dffd21bed82751ce053d88cee1e",
+      "bytes": 107438,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/ali-elganzory/mv-posttraining-scores/resolve/24d1f140ee04dadd9fa3e7b451bdc705fc9aeef5/phase1/sampling-0.7/final_scores.csv"
+        }
+      ],
+      "paper": false,
+      "what": "The three-seed Phase 1 grid sampled at temperature 0.7, a robustness check."
+    },
+    "R7-sampling-metric": {
+      "file": "metric_scores.csv",
+      "local": "data/sampling07/metric_scores.csv",
+      "sha256": "4ed158b9ae8115f16e3b15aa151ffbcfab24c068450cde90cc3f4cda482a9b4c",
+      "bytes": 150794,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/ali-elganzory/mv-posttraining-scores/resolve/24d1f140ee04dadd9fa3e7b451bdc705fc9aeef5/phase1/sampling-0.7/metric_scores.csv"
+        }
+      ],
+      "paper": false,
+      "what": "The sampled grid: scores per metric."
+    },
+    "R7-sampling-items": {
+      "file": "per_sample_scores.csv",
+      "local": "data/sampling07/per_sample_scores.csv",
+      "sha256": "f8c5b06c1284ba902e56040a3aa3e61676227ef693b6e4bb28cd6526c8d3b07c",
+      "bytes": 23549970,
+      "sources": [
+        {
+          "url": "https://huggingface.co/datasets/ali-elganzory/mv-posttraining-scores/resolve/24d1f140ee04dadd9fa3e7b451bdc705fc9aeef5/phase1/sampling-0.7/per_sample_scores.csv"
+        }
+      ],
+      "paper": false,
+      "what": "The sampled grid: per-question scores for 7 tasks."
+    },
+    "T-submission": {
+      "file": "submission_tables.csv",
+      "local": "submission/submission_tables.csv",
+      "sha256": "088eaac5f939553bcde6ee12a047d6b49ba04a059e67ed36571c3205eaedea4b",
+      "bytes": 110109,
+      "sources": [
+        {
+          "repo": "submission/submission_tables.csv"
+        }
+      ],
+      "paper": false,
+      "what": "The eleven results tables of the paper as submitted for review, transcribed cell by cell from its PDF by `mvpt transcribe-submission`. `mvpt render-reconciliation` compares them with the revision. docs/reconciliation.md describes them."
+    },
+    "C-setup": {
+      "file": "paper_setup.toml",
+      "local": "config/paper_setup.toml",
+      "sources": [
+        {
+          "repo": "config/paper_setup.toml"
+        }
+      ],
+      "paper": true,
+      "what": "The setup values of Tables 5 to 13 that no evaluation record holds, each table with its source. Committed in this repository.",
+      "sha256": "a33c91553ad7cbe57f31410ef31d187211073ae9c9eaea1e3114112381697abc",
+      "bytes": 8333
+    }
+  }
+}

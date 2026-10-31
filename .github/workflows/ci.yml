@@ -1,0 +1,20 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Runs the tests only. The full rebuild of the paper's files from the pinned
+# inputs (`mvpt fetch-inputs && mvpt build --check`) is the reproduce workflow,
+# run by hand.
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-lock.txt && pip install -e ".[test]"
+      - run: pytest -q

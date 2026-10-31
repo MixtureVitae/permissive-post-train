@@ -1,0 +1,481 @@
+mode,family,context_length,label,task,estimate,lo,hi,p,q
+default,front-loading,4096,MV,arc_challenge,2.047782,-0.341297,4.43686,0.0995,0.162148
+default,front-loading,4096,MV,arc_easy,2.146465,0.589226,3.619529,0.0085,0.01781
+default,front-loading,4096,MV,boolq,8.715596,6.972477,10.397554,0.0005,0.001189
+default,front-loading,4096,MV,commonsense_qa,28.910729,24.979525,32.350532,0.0005,0.001189
+default,front-loading,4096,MV,copa,-2.0,-8.0,4.0,0.6215,0.749205
+default,front-loading,4096,MV,hellaswag,2.320255,1.682683,2.957578,0.0005,0.001189
+default,front-loading,4096,MV,lambada_openai,-3.007957,-4.191733,-1.843586,0.0005,0.001189
+default,front-loading,4096,MV,mmlu,16.123059,15.069078,17.155854,0.0005,0.001189
+default,front-loading,4096,MV,openbookqa,-2.2,-5.4,1.0,0.1805,0.264733
+default,front-loading,4096,MV,piqa,-0.054407,-1.523395,1.360174,0.9465,0.994805
+default,front-loading,4096,MV,winogrande,-0.47356,-3.393844,2.525651,0.7945,0.908
+default,front-loading,4096,MV,avg,4.775269,3.935734,5.604951,0.0005,0.000667
+default,front-loading,4096,Comma,arc_challenge,3.668942,1.279863,6.143345,0.0075,0.016098
+default,front-loading,4096,Comma,arc_easy,6.313131,4.62963,7.954545,0.0005,0.001189
+default,front-loading,4096,Comma,boolq,12.04893,10.152905,13.884557,0.0005,0.001189
+default,front-loading,4096,Comma,commonsense_qa,31.695332,28.091728,35.219083,0.0005,0.001189
+default,front-loading,4096,Comma,copa,0.0,-6.0,6.0,1.0,1.0
+default,front-loading,4096,Comma,hellaswag,1.941844,1.344105,2.549542,0.0005,0.001189
+default,front-loading,4096,Comma,lambada_openai,-1.086746,-2.212789,0.058704,0.0685,0.12302
+default,front-loading,4096,Comma,mmlu,13.844182,12.711686,14.94107,0.0005,0.001189
+default,front-loading,4096,Comma,openbookqa,3.6,0.8,6.6,0.0055,0.01241
+default,front-loading,4096,Comma,piqa,0.054407,-1.361534,1.523395,0.9745,0.994805
+default,front-loading,4096,Comma,winogrande,0.23678,-2.920284,3.235991,0.9005,0.99055
+default,front-loading,4096,Comma,avg,6.574255,5.763828,7.39165,0.0005,0.000667
+default,front-loading,4096,Nemotron,arc_challenge,-0.085324,-2.21843,1.962457,0.9725,0.994805
+default,front-loading,4096,Nemotron,arc_easy,-0.589226,-1.851852,0.715488,0.3805,0.507333
+default,front-loading,4096,Nemotron,boolq,1.896024,0.397554,3.363914,0.0125,0.024444
+default,front-loading,4096,Nemotron,commonsense_qa,13.431613,10.399263,16.463964,0.0005,0.001189
+default,front-loading,4096,Nemotron,copa,-5.0,-12.0,2.0,0.2135,0.308
+default,front-loading,4096,Nemotron,hellaswag,-2.589126,-3.117158,-2.061342,0.0005,0.001189
+default,front-loading,4096,Nemotron,lambada_openai,-0.368717,-1.494275,0.757326,0.5725,0.7095
+default,front-loading,4096,Nemotron,mmlu,4.059251,3.169064,4.96368,0.0005,0.001189
+default,front-loading,4096,Nemotron,openbookqa,-3.4,-6.4,-0.6,0.0235,0.044
+default,front-loading,4096,Nemotron,piqa,-1.088139,-2.285092,0.217628,0.1055,0.1688
+default,front-loading,4096,Nemotron,winogrande,-2.052092,-4.735596,0.475533,0.1285,0.201929
+default,front-loading,4096,Nemotron,avg,0.383115,-0.422486,1.210102,0.3765,0.3765
+default,front-loading,4096,FineWeb-Edu,arc_challenge,1.023891,-1.450512,3.327645,0.4615,0.597235
+default,front-loading,4096,FineWeb-Edu,arc_easy,3.030303,1.683502,4.336069,0.0005,0.001189
+default,front-loading,4096,FineWeb-Edu,boolq,12.415902,10.550459,14.342508,0.0005,0.001189
+default,front-loading,4096,FineWeb-Edu,commonsense_qa,34.561835,31.203931,38.165438,0.0005,0.001189
+default,front-loading,4096,FineWeb-Edu,copa,-3.0,-9.0,2.0,0.3205,0.440688
+default,front-loading,4096,FineWeb-Edu,hellaswag,-1.742681,-2.310546,-1.174816,0.0005,0.001189
+default,front-loading,4096,FineWeb-Edu,lambada_openai,-1.047933,-2.251116,0.136328,0.0835,0.144078
+default,front-loading,4096,FineWeb-Edu,mmlu,21.371599,20.27489,22.454244,0.0005,0.001189
+default,front-loading,4096,FineWeb-Edu,openbookqa,0.6,-2.6,4.0,0.8135,0.917795
+default,front-loading,4096,FineWeb-Edu,piqa,-0.272035,-1.577802,0.979325,0.6835,0.801973
+default,front-loading,4096,FineWeb-Edu,winogrande,0.157853,-2.604578,2.920284,0.9645,0.994805
+default,front-loading,4096,FineWeb-Edu,avg,6.099885,5.314992,6.835277,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,arc_challenge,-12.030717,-14.419795,-9.639505,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,arc_easy,-9.385522,-10.985901,-7.828283,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,boolq,-5.779817,-7.308869,-4.281346,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,commonsense_qa,-10.728911,-13.759214,-7.780508,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,copa,-9.0,-16.0,-2.0,0.0105,0.013014
+default,permissiveness,4096,MV - Nemotron,hellaswag,-14.379606,-15.146385,-13.642701,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,lambada_openai,-9.509024,-10.751019,-8.305356,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,mmlu,-8.545791,-9.435978,-7.627119,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,openbookqa,-4.4,-7.6,-1.2,0.0095,0.011943
+default,permissiveness,4096,MV - Nemotron,piqa,-7.181719,-8.868335,-5.54951,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,winogrande,-5.130229,-8.287293,-2.131018,0.0005,0.000667
+default,permissiveness,4096,MV - Nemotron,avg,-8.733758,-9.647871,-7.834155,0.0005,0.0005
+default,permissiveness,4096,MV - FineWeb-Edu,arc_challenge,-9.215017,-11.68942,-6.740614,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,arc_easy,-9.006734,-10.563973,-7.449495,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,boolq,-3.761468,-5.138379,-2.353976,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,commonsense_qa,-4.340704,-7.291155,-1.556102,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,copa,-8.0,-16.0,0.0,0.0645,0.06922
+default,permissiveness,4096,MV - FineWeb-Edu,hellaswag,-10.834495,-11.561691,-10.107548,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,lambada_openai,-6.481661,-7.762468,-5.278479,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,mmlu,-5.526278,-6.430886,-4.607606,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,openbookqa,-8.8,-12.2,-5.2,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,piqa,-6.474429,-8.106638,-4.896627,0.0005,0.000667
+default,permissiveness,4096,MV - FineWeb-Edu,winogrande,-4.814522,-7.813733,-1.894238,0.0025,0.003188
+default,permissiveness,4096,MV - FineWeb-Edu,avg,-7.02321,-7.991379,-6.049492,0.0005,0.0005
+default,permissiveness,4096,Comma - Nemotron,arc_challenge,-12.457338,-15.017065,-10.153584,0.0005,0.000667
+default,permissiveness,4096,Comma - Nemotron,arc_easy,-10.858586,-12.5,-9.300295,0.0005,0.000667
+default,permissiveness,4096,Comma - Nemotron,boolq,-4.067278,-5.535168,-2.568807,0.0005,0.000667
+default,permissiveness,4096,Comma - Nemotron,commonsense_qa,-9.99181,-13.104013,-6.797707,0.0005,0.000667
+default,permissiveness,4096,Comma - Nemotron,copa,-10.0,-19.0,-1.0,0.0395,0.044564
+default,permissiveness,4096,Comma - Nemotron,hellaswag,-13.423621,-14.220275,-12.646883,0.0005,0.000667
+default,permissiveness,4096,Comma - Nemotron,lambada_openai,-4.211139,-5.414322,-3.007957,0.0005,0.000667
+default,permissiveness,4096,Comma - Nemotron,mmlu,-10.126763,-11.010006,-9.236398,0.0005,0.000667
+default,permissiveness,4096,Comma - Nemotron,openbookqa,-2.4,-5.6,0.8,0.1835,0.185609
+default,permissiveness,4096,Comma - Nemotron,piqa,-6.365615,-7.997824,-4.732046,0.0005,0.000667
+default,permissiveness,4096,Comma - Nemotron,winogrande,-3.393844,-6.314128,-0.552486,0.0245,0.028747
+default,permissiveness,4096,Comma - Nemotron,avg,-7.935999,-8.971909,-6.930111,0.0005,0.0005
+default,permissiveness,4096,Comma - FineWeb-Edu,arc_challenge,-9.641638,-12.201365,-6.996587,0.0005,0.000667
+default,permissiveness,4096,Comma - FineWeb-Edu,arc_easy,-10.479798,-12.121212,-8.838384,0.0005,0.000667
+default,permissiveness,4096,Comma - FineWeb-Edu,boolq,-2.04893,-3.547401,-0.489297,0.0145,0.017243
+default,permissiveness,4096,Comma - FineWeb-Edu,commonsense_qa,-3.603604,-6.879607,-0.489353,0.0275,0.031842
+default,permissiveness,4096,Comma - FineWeb-Edu,copa,-9.0,-17.0,-1.0,0.0375,0.042857
+default,permissiveness,4096,Comma - FineWeb-Edu,hellaswag,-9.87851,-10.615415,-9.171231,0.0005,0.000667
+default,permissiveness,4096,Comma - FineWeb-Edu,lambada_openai,-1.183776,-2.445178,0.058704,0.0695,0.073687
+default,permissiveness,4096,Comma - FineWeb-Edu,mmlu,-7.10725,-7.983371,-6.231306,0.0005,0.000667
+default,permissiveness,4096,Comma - FineWeb-Edu,openbookqa,-6.8,-10.4,-3.4,0.0005,0.000667
+default,permissiveness,4096,Comma - FineWeb-Edu,piqa,-5.658324,-7.236126,-4.026115,0.0005,0.000667
+default,permissiveness,4096,Comma - FineWeb-Edu,winogrande,-3.078137,-6.077348,-0.078927,0.0495,0.05445
+default,permissiveness,4096,Comma - FineWeb-Edu,avg,-6.225452,-7.180182,-5.261571,0.0005,0.0005
+default,interaction,4096,MV - non-permissive,arc_challenge,1.578498,-0.981229,4.352602,0.2565,0.418
+default,interaction,4096,MV - non-permissive,arc_easy,0.925926,-0.841751,2.630997,0.3215,0.471533
+default,interaction,4096,MV - non-permissive,boolq,1.559633,-0.688073,3.868884,0.1905,0.33528
+default,interaction,4096,MV - non-permissive,commonsense_qa,4.914005,0.655201,8.518632,0.0225,0.055
+default,interaction,4096,MV - non-permissive,copa,2.0,-6.0,9.0125,0.6405,0.741632
+default,interaction,4096,MV - non-permissive,hellaswag,4.486158,3.744274,5.223063,0.0005,0.001692
+default,interaction,4096,MV - non-permissive,lambada_openai,-2.299631,-3.696876,-0.873035,0.0005,0.001692
+default,interaction,4096,MV - non-permissive,mmlu,3.407634,2.225288,4.600484,0.0005,0.001692
+default,interaction,4096,MV - non-permissive,openbookqa,-0.8,-4.5,3.0,0.6855,0.773385
+default,interaction,4096,MV - non-permissive,piqa,0.62568,-1.088139,2.312296,0.4745,0.596514
+default,interaction,4096,MV - non-permissive,winogrande,0.47356,-3.35438,4.025257,0.7725,0.84975
+default,interaction,4096,MV - non-permissive,avg,1.533769,0.470641,2.50019,0.0075,0.01
+default,interaction,4096,Comma - non-permissive,arc_challenge,3.199659,0.255973,6.186007,0.0305,0.0671
+default,interaction,4096,Comma - non-permissive,arc_easy,5.092593,3.240215,6.987058,0.0005,0.001692
+default,interaction,4096,Comma - non-permissive,boolq,4.892966,2.476682,7.431193,0.0005,0.001692
+default,interaction,4096,Comma - non-permissive,commonsense_qa,7.698608,3.767404,11.384111,0.0005,0.001692
+default,interaction,4096,Comma - non-permissive,copa,4.0,-4.5,12.0,0.3615,0.513097
+default,interaction,4096,Comma - non-permissive,hellaswag,4.107747,3.405572,4.849632,0.0005,0.001692
+default,interaction,4096,Comma - non-permissive,lambada_openai,-0.37842,-1.765962,1.048176,0.6325,0.741632
+default,interaction,4096,Comma - non-permissive,mmlu,1.128757,-0.028753,2.300331,0.0635,0.133048
+default,interaction,4096,Comma - non-permissive,openbookqa,5.0,1.6,8.6,0.0045,0.0132
+default,interaction,4096,Comma - non-permissive,piqa,0.734494,-0.871192,2.50272,0.3775,0.519062
+default,interaction,4096,Comma - non-permissive,winogrande,1.183899,-2.446725,4.775059,0.5355,0.6545
+default,interaction,4096,Comma - non-permissive,avg,3.332755,2.328085,4.345952,0.0005,0.001
+default,front-loading,16384,MV,arc_challenge,2.730375,0.255973,5.204778,0.0295,0.054083
+default,front-loading,16384,MV,arc_easy,2.861953,1.262626,4.377104,0.0005,0.001189
+default,front-loading,16384,MV,boolq,10.672783,8.899083,12.385321,0.0005,0.001189
+default,front-loading,16384,MV,commonsense_qa,26.289926,22.522523,29.89353,0.0005,0.001189
+default,front-loading,16384,MV,copa,-9.0,-16.0,-3.0,0.0105,0.021488
+default,front-loading,16384,MV,hellaswag,2.101175,1.443935,2.778331,0.0005,0.001189
+default,front-loading,16384,MV,lambada_openai,-2.464584,-3.590142,-1.338541,0.0005,0.001189
+default,front-loading,16384,MV,mmlu,14.990742,14.050705,16.044901,0.0005,0.001189
+default,front-loading,16384,MV,openbookqa,-2.8,-5.8,0.4,0.0885,0.146943
+default,front-loading,16384,MV,piqa,-0.108814,-1.523395,1.360174,0.9555,0.994805
+default,front-loading,16384,MV,winogrande,0.0,-2.999211,3.157064,0.9835,0.994805
+default,front-loading,16384,MV,avg,4.115778,3.262331,4.98765,0.0005,0.000667
+default,front-loading,16384,Comma,arc_challenge,2.21843,-0.255973,4.692833,0.0885,0.146943
+default,front-loading,16384,Comma,arc_easy,3.745791,2.146465,5.30303,0.0005,0.001189
+default,front-loading,16384,Comma,boolq,14.311927,12.446483,16.116208,0.0005,0.001189
+default,front-loading,16384,Comma,commonsense_qa,26.208026,22.604423,29.731777,0.0005,0.001189
+default,front-loading,16384,Comma,copa,-3.0,-9.0,3.0,0.3985,0.523403
+default,front-loading,16384,Comma,hellaswag,1.194981,0.5477,1.852221,0.0005,0.001189
+default,front-loading,16384,Comma,lambada_openai,-3.590142,-4.754512,-2.289928,0.0005,0.001189
+default,front-loading,16384,Comma,mmlu,13.602051,12.519406,14.691639,0.0005,0.001189
+default,front-loading,16384,Comma,openbookqa,2.2,-0.8,5.2,0.1705,0.25869
+default,front-loading,16384,Comma,piqa,-1.142546,-2.665941,0.489663,0.1665,0.257053
+default,front-loading,16384,Comma,winogrande,-1.499605,-4.340963,1.262826,0.2875,0.401587
+default,front-loading,16384,Comma,avg,4.931719,4.091483,5.753022,0.0005,0.000667
+default,front-loading,16384,Nemotron,arc_challenge,0.255973,-1.791809,2.303754,0.8445,0.940709
+default,front-loading,16384,Nemotron,arc_easy,0.631313,-0.673401,1.936027,0.3485,0.471815
+default,front-loading,16384,Nemotron,boolq,2.385321,0.886086,3.975535,0.0065,0.0143
+default,front-loading,16384,Nemotron,commonsense_qa,11.056511,7.94226,14.168714,0.0005,0.001189
+default,front-loading,16384,Nemotron,copa,-2.0,-9.0,5.0,0.6425,0.764054
+default,front-loading,16384,Nemotron,hellaswag,-2.340171,-2.897829,-1.782513,0.0005,0.001189
+default,front-loading,16384,Nemotron,lambada_openai,-1.610712,-2.678537,-0.50456,0.0045,0.010421
+default,front-loading,16384,Nemotron,mmlu,2.962541,2.129326,3.809999,0.0005,0.001189
+default,front-loading,16384,Nemotron,openbookqa,-3.6,-6.8,-0.8,0.0125,0.024444
+default,front-loading,16384,Nemotron,piqa,-0.272035,-1.632209,1.088139,0.7225,0.836579
+default,front-loading,16384,Nemotron,winogrande,-1.815312,-4.340963,0.710339,0.1805,0.264733
+default,front-loading,16384,Nemotron,avg,0.513948,-0.379371,1.33632,0.2255,0.257714
+default,front-loading,16384,FineWeb-Edu,arc_challenge,2.047782,-0.170648,4.43686,0.0735,0.12936
+default,front-loading,16384,FineWeb-Edu,arc_easy,0.799663,-0.464015,2.105429,0.2565,0.364065
+default,front-loading,16384,FineWeb-Edu,boolq,7.553517,5.749235,9.358563,0.0005,0.001189
+default,front-loading,16384,FineWeb-Edu,commonsense_qa,35.544636,32.104832,38.902539,0.0005,0.001189
+default,front-loading,16384,FineWeb-Edu,copa,-2.0,-7.0,2.0,0.5185,0.651829
+default,front-loading,16384,FineWeb-Edu,hellaswag,-2.170882,-2.848038,-1.513643,0.0005,0.001189
+default,front-loading,16384,FineWeb-Edu,lambada_openai,-1.474869,-2.658645,-0.271201,0.0135,0.025826
+default,front-loading,16384,FineWeb-Edu,mmlu,19.534254,18.473152,20.624021,0.0005,0.001189
+default,front-loading,16384,FineWeb-Edu,openbookqa,-1.0,-4.2,2.0,0.5805,0.7095
+default,front-loading,16384,FineWeb-Edu,piqa,0.108814,-1.305767,1.468988,0.9435,0.994805
+default,front-loading,16384,FineWeb-Edu,winogrande,-0.947119,-3.70955,1.894238,0.4865,0.620464
+default,front-loading,16384,FineWeb-Edu,avg,5.272345,4.507434,6.005771,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,arc_challenge,-10.665529,-13.054608,-8.188993,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,arc_easy,-9.93266,-11.531987,-8.416456,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,boolq,-6.880734,-8.471713,-5.321101,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,commonsense_qa,-12.858313,-15.890663,-9.82801,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,copa,-14.0,-22.0,-6.0,0.0015,0.00197
+default,permissiveness,16384,MV - Nemotron,hellaswag,-14.558853,-15.335839,-13.791824,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,lambada_openai,-9.101494,-10.343974,-7.917233,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,mmlu,-8.431847,-9.336277,-7.513175,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,openbookqa,-6.4,-9.8,-3.0,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,piqa,-8.106638,-9.902067,-6.311208,0.0005,0.000667
+default,permissiveness,16384,MV - Nemotron,winogrande,-4.893449,-7.813733,-1.736385,0.0025,0.003188
+default,permissiveness,16384,MV - Nemotron,avg,-9.620865,-10.560697,-8.647663,0.0005,0.0005
+default,permissiveness,16384,MV - FineWeb-Edu,arc_challenge,-8.532423,-11.094283,-5.972696,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,arc_easy,-8.207071,-9.806397,-6.649832,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,boolq,-4.954128,-6.452599,-3.51682,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,commonsense_qa,-7.616708,-10.647011,-4.586405,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,copa,-12.0,-19.0,-5.0,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,hellaswag,-9.39056,-10.048048,-8.653655,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,lambada_openai,-6.695129,-7.918203,-5.491946,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,mmlu,-5.284148,-6.21012,-4.351054,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,openbookqa,-10.0,-13.6,-6.2,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,piqa,-6.909684,-8.650707,-5.223069,0.0005,0.000667
+default,permissiveness,16384,MV - FineWeb-Edu,winogrande,-4.18311,-7.024467,-1.026046,0.0115,0.014056
+default,permissiveness,16384,MV - FineWeb-Edu,avg,-7.615724,-8.53472,-6.729334,0.0005,0.0005
+default,permissiveness,16384,Comma - Nemotron,arc_challenge,-10.409556,-12.800768,-7.935154,0.0005,0.000667
+default,permissiveness,16384,Comma - Nemotron,arc_easy,-9.469697,-11.069024,-7.87037,0.0005,0.000667
+default,permissiveness,16384,Comma - Nemotron,boolq,-1.223242,-2.629969,0.214067,0.1005,0.105286
+default,permissiveness,16384,Comma - Nemotron,commonsense_qa,-12.694513,-15.642916,-9.744062,0.0005,0.000667
+default,permissiveness,16384,Comma - Nemotron,copa,-8.0,-16.0,0.0,0.0645,0.06922
+default,permissiveness,16384,Comma - Nemotron,hellaswag,-13.981279,-14.777933,-13.144792,0.0005,0.000667
+default,permissiveness,16384,Comma - Nemotron,lambada_openai,-4.851543,-6.094023,-3.64836,0.0005,0.000667
+default,permissiveness,16384,Comma - Nemotron,mmlu,-9.122632,-10.012819,-8.218203,0.0005,0.000667
+default,permissiveness,16384,Comma - Nemotron,openbookqa,-2.6,-5.8,0.8,0.1425,0.145814
+default,permissiveness,16384,Comma - Nemotron,piqa,-7.181719,-8.922742,-5.440696,0.0005,0.000667
+default,permissiveness,16384,Comma - Nemotron,winogrande,-3.47277,-6.471981,-0.631413,0.0135,0.016274
+default,permissiveness,16384,Comma - Nemotron,avg,-7.546086,-8.497718,-6.633462,0.0005,0.0005
+default,permissiveness,16384,Comma - FineWeb-Edu,arc_challenge,-8.276451,-10.580205,-5.972696,0.0005,0.000667
+default,permissiveness,16384,Comma - FineWeb-Edu,arc_easy,-7.744108,-9.343434,-6.144781,0.0005,0.000667
+default,permissiveness,16384,Comma - FineWeb-Edu,boolq,0.703364,-0.672783,2.201835,0.3125,0.3125
+default,permissiveness,16384,Comma - FineWeb-Edu,commonsense_qa,-7.452907,-10.48321,-4.504505,0.0005,0.000667
+default,permissiveness,16384,Comma - FineWeb-Edu,copa,-6.0,-13.0,1.0,0.1225,0.126824
+default,permissiveness,16384,Comma - FineWeb-Edu,hellaswag,-8.812985,-9.530223,-8.066122,0.0005,0.000667
+default,permissiveness,16384,Comma - FineWeb-Edu,lambada_openai,-2.445178,-3.668252,-1.222589,0.0005,0.000667
+default,permissiveness,16384,Comma - FineWeb-Edu,mmlu,-5.974932,-6.87224,-5.006231,0.0005,0.000667
+default,permissiveness,16384,Comma - FineWeb-Edu,openbookqa,-6.2,-9.6,-3.0,0.0005,0.000667
+default,permissiveness,16384,Comma - FineWeb-Edu,piqa,-5.984766,-7.725789,-4.352557,0.0005,0.000667
+default,permissiveness,16384,Comma - FineWeb-Edu,winogrande,-2.762431,-5.682715,-0.078927,0.0495,0.05445
+default,permissiveness,16384,Comma - FineWeb-Edu,avg,-5.540945,-6.417457,-4.672399,0.0005,0.0005
+default,interaction,16384,MV - non-permissive,arc_challenge,1.578498,-1.279863,4.352602,0.3045,0.462
+default,interaction,16384,MV - non-permissive,arc_easy,2.146465,0.315657,3.872054,0.0265,0.061368
+default,interaction,16384,MV - non-permissive,boolq,5.703364,3.501147,7.798165,0.0005,0.001692
+default,interaction,16384,MV - non-permissive,commonsense_qa,2.989353,-1.105651,7.125307,0.1665,0.30525
+default,interaction,16384,MV - non-permissive,copa,-7.0,-16.0,1.0125,0.1155,0.228609
+default,interaction,16384,MV - non-permissive,hellaswag,4.356702,3.599881,5.143522,0.0005,0.001692
+default,interaction,16384,MV - non-permissive,lambada_openai,-0.921793,-2.309334,0.465748,0.2095,0.354538
+default,interaction,16384,MV - non-permissive,mmlu,3.742344,2.684803,4.942405,0.0005,0.001692
+default,interaction,16384,MV - non-permissive,openbookqa,-0.5,-4.2,3.5025,0.8435,0.90522
+default,interaction,16384,MV - non-permissive,piqa,-0.027203,-1.768226,1.741023,0.9985,0.9985
+default,interaction,16384,MV - non-permissive,winogrande,1.381215,-2.091555,4.973362,0.4165,0.555333
+default,interaction,16384,MV - non-permissive,avg,1.222631,0.152625,2.327104,0.0275,0.0275
+default,interaction,16384,Comma - non-permissive,arc_challenge,1.066553,-1.62116,3.754266,0.4555,0.589471
+default,interaction,16384,Comma - non-permissive,arc_easy,3.030303,1.157407,4.861637,0.0025,0.007857
+default,interaction,16384,Comma - non-permissive,boolq,9.342508,7.079128,11.651376,0.0005,0.001692
+default,interaction,16384,Comma - non-permissive,commonsense_qa,2.907453,-0.738124,6.677928,0.1195,0.228609
+default,interaction,16384,Comma - non-permissive,copa,-1.0,-9.0,7.0,0.8785,0.920333
+default,interaction,16384,Comma - non-permissive,hellaswag,3.450508,2.688707,4.227246,0.0005,0.001692
+default,interaction,16384,Comma - non-permissive,lambada_openai,-2.047351,-3.444595,-0.54313,0.0075,0.020625
+default,interaction,16384,Comma - non-permissive,mmlu,2.353653,1.217597,3.503774,0.0005,0.001692
+default,interaction,16384,Comma - non-permissive,openbookqa,4.5,1.1,7.9,0.0185,0.047882
+default,interaction,16384,Comma - non-permissive,piqa,-1.060936,-2.938656,0.870511,0.2775,0.436071
+default,interaction,16384,Comma - non-permissive,winogrande,-0.11839,-3.552684,3.235991,0.9455,0.967488
+default,interaction,16384,Comma - non-permissive,avg,2.038573,1.059836,3.094019,0.0005,0.001
+three-seed mean,front-loading,4096,MV,arc_challenge,2.957907,0.938567,5.062571,0.0025,0.0055
+three-seed mean,front-loading,4096,MV,arc_easy,2.244669,0.953984,3.633558,0.0005,0.001128
+three-seed mean,front-loading,4096,MV,boolq,7.889908,6.493374,9.22528,0.0005,0.001128
+three-seed mean,front-loading,4096,MV,commonsense_qa,30.05733,26.780644,33.006416,0.0005,0.001128
+three-seed mean,front-loading,4096,MV,copa,-2.666667,-8.666667,3.0,0.3955,0.499714
+three-seed mean,front-loading,4096,MV,hellaswag,1.975038,1.440533,2.516182,0.0005,0.001128
+three-seed mean,front-loading,4096,MV,lambada_openai,-2.813895,-3.991203,-1.636587,0.0005,0.001128
+three-seed mean,front-loading,4096,MV,mmlu,16.227508,15.168305,17.248493,0.0005,0.001128
+three-seed mean,front-loading,4096,MV,openbookqa,-2.2,-5.333333,1.0,0.1675,0.241639
+three-seed mean,front-loading,4096,MV,piqa,-0.090678,-1.414581,1.106275,0.8925,0.98175
+three-seed mean,front-loading,4096,MV,winogrande,-0.105235,-2.946593,2.867666,0.9545,1.0
+three-seed mean,front-loading,4096,MV,avg,4.861444,4.092805,5.617126,0.0005,0.000667
+three-seed mean,front-loading,4096,Comma,arc_challenge,3.412969,1.194539,5.802048,0.0055,0.011524
+three-seed mean,front-loading,4096,Comma,arc_easy,6.832211,5.359147,8.277217,0.0005,0.001128
+three-seed mean,front-loading,4096,Comma,boolq,11.681957,10.142712,13.221458,0.0005,0.001128
+three-seed mean,front-loading,4096,Comma,commonsense_qa,32.050232,29.156429,35.0,0.0005,0.001128
+three-seed mean,front-loading,4096,Comma,copa,0.0,-6.0,6.0,1.0,1.0
+three-seed mean,front-loading,4096,Comma,hellaswag,1.875456,1.347673,2.386643,0.0005,0.001128
+three-seed mean,front-loading,4096,Comma,lambada_openai,-1.31962,-2.451646,-0.168025,0.0265,0.045725
+three-seed mean,front-loading,4096,Comma,mmlu,13.663771,12.531335,14.755911,0.0005,0.001128
+three-seed mean,front-loading,4096,Comma,openbookqa,3.6,0.866667,6.666667,0.0065,0.013302
+three-seed mean,front-loading,4096,Comma,piqa,0.54407,-0.689155,1.867972,0.3975,0.499714
+three-seed mean,front-loading,4096,Comma,winogrande,0.605104,-2.446725,3.47277,0.6985,0.825
+three-seed mean,front-loading,4096,Comma,avg,6.631468,5.843375,7.424573,0.0005,0.000667
+three-seed mean,front-loading,4096,Nemotron,arc_challenge,-0.19909,-2.020051,1.62116,0.8465,0.955026
+three-seed mean,front-loading,4096,Nemotron,arc_easy,-0.014029,-1.094276,1.010101,0.9765,1.0
+three-seed mean,front-loading,4096,Nemotron,boolq,1.794088,0.519878,3.027523,0.0105,0.01925
+three-seed mean,front-loading,4096,Nemotron,commonsense_qa,13.185913,10.42861,15.888616,0.0005,0.001128
+three-seed mean,front-loading,4096,Nemotron,copa,-4.333333,-11.333333,2.341667,0.2305,0.316938
+three-seed mean,front-loading,4096,Nemotron,hellaswag,-2.469628,-2.914426,-2.034538,0.0005,0.001128
+three-seed mean,front-loading,4096,Nemotron,lambada_openai,-0.498092,-1.610874,0.640565,0.3905,0.499714
+three-seed mean,front-loading,4096,Nemotron,mmlu,3.774391,2.905569,4.662382,0.0005,0.001128
+three-seed mean,front-loading,4096,Nemotron,openbookqa,-3.666667,-6.535,-0.8,0.0105,0.01925
+three-seed mean,front-loading,4096,Nemotron,piqa,-1.233225,-2.26741,-0.072089,0.0405,0.068538
+three-seed mean,front-loading,4096,Nemotron,winogrande,-1.999474,-4.525125,0.579453,0.1275,0.196842
+three-seed mean,front-loading,4096,Nemotron,avg,0.394623,-0.357933,1.187153,0.3425,0.3425
+three-seed mean,front-loading,4096,FineWeb-Edu,arc_challenge,1.62116,-0.512656,3.811149,0.1475,0.216333
+three-seed mean,front-loading,4096,FineWeb-Edu,arc_easy,3.156566,1.964085,4.2789,0.0005,0.001128
+three-seed mean,front-loading,4096,FineWeb-Edu,boolq,12.619776,10.835627,14.444444,0.0005,0.001128
+three-seed mean,front-loading,4096,FineWeb-Edu,commonsense_qa,35.025935,32.02225,38.193421,0.0005,0.001128
+three-seed mean,front-loading,4096,FineWeb-Edu,copa,-3.666667,-9.666667,1.666667,0.1945,0.276065
+three-seed mean,front-loading,4096,FineWeb-Edu,hellaswag,-1.772555,-2.247394,-1.307757,0.0005,0.001128
+three-seed mean,front-loading,4096,FineWeb-Edu,lambada_openai,-1.229058,-2.413157,-0.077463,0.0425,0.070566
+three-seed mean,front-loading,4096,FineWeb-Edu,mmlu,21.186441,20.058812,22.273715,0.0005,0.001128
+three-seed mean,front-loading,4096,FineWeb-Edu,openbookqa,0.733333,-2.466667,4.068333,0.7045,0.825
+three-seed mean,front-loading,4096,FineWeb-Edu,piqa,0.090678,-1.070004,1.160682,0.9465,1.0
+three-seed mean,front-loading,4096,FineWeb-Edu,winogrande,-0.210471,-2.946593,2.473033,0.8635,0.961873
+three-seed mean,front-loading,4096,FineWeb-Edu,avg,6.141376,5.385197,6.872531,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,arc_challenge,-11.632537,-13.765643,-9.527162,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,arc_easy,-9.848485,-11.265432,-8.459245,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,boolq,-5.504587,-6.727829,-4.260958,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,commonsense_qa,-10.48321,-13.185913,-7.971608,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,copa,-9.666667,-17.333333,-2.0,0.0075,0.009041
+three-seed mean,permissiveness,4096,MV - Nemotron,hellaswag,-14.714864,-15.418741,-14.017709,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,lambada_openai,-9.379649,-10.602238,-8.169998,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,mmlu,-8.260931,-9.127558,-7.349084,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,openbookqa,-4.133333,-7.4,-0.866667,0.0155,0.018432
+three-seed mean,permissiveness,4096,MV - Nemotron,piqa,-7.671382,-9.213366,-6.238665,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,winogrande,-5.182847,-8.314259,-2.183636,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - Nemotron,avg,-8.770772,-9.662446,-7.907898,0.0005,0.0005
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,arc_challenge,-9.328783,-11.491041,-7.138794,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,arc_easy,-9.090909,-10.45174,-7.730079,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,boolq,-3.679918,-4.933996,-2.497452,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,commonsense_qa,-4.258804,-6.879607,-1.883702,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,copa,-7.333333,-16.0,1.0,0.0885,0.093831
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,hellaswag,-10.987187,-11.637871,-10.356503,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,lambada_openai,-6.300537,-7.542855,-5.129698,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,mmlu,-5.341119,-6.236113,-4.417284,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,openbookqa,-8.933333,-12.401667,-5.333333,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,piqa,-6.891549,-8.342855,-5.440696,0.0005,0.000667
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,winogrande,-4.446198,-7.445409,-1.44633,0.0055,0.006722
+three-seed mean,permissiveness,4096,MV - FineWeb-Edu,avg,-6.962879,-7.926382,-6.016654,0.0005,0.0005
+three-seed mean,permissiveness,4096,Comma - Nemotron,arc_challenge,-12.116041,-14.363623,-10.039107,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - Nemotron,arc_easy,-11.167228,-12.640292,-9.694164,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - Nemotron,boolq,-4.342508,-5.545362,-3.170234,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - Nemotron,commonsense_qa,-10.537811,-13.241878,-7.862408,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - Nemotron,copa,-10.666667,-19.333333,-1.666667,0.0265,0.030684
+three-seed mean,permissiveness,4096,Comma - Nemotron,hellaswag,-13.685853,-14.382925,-13.021891,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - Nemotron,lambada_openai,-4.314639,-5.479171,-3.124394,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - Nemotron,mmlu,-10.022314,-10.903065,-9.136816,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - Nemotron,openbookqa,-2.133333,-5.268333,1.066667,0.2165,0.2165
+three-seed mean,permissiveness,4096,Comma - Nemotron,piqa,-6.565107,-8.034095,-5.114255,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - Nemotron,winogrande,-3.078137,-6.051039,-0.184162,0.0375,0.042857
+three-seed mean,permissiveness,4096,Comma - Nemotron,avg,-8.05724,-9.052557,-7.045178,0.0005,0.0005
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,arc_challenge,-9.812287,-12.031428,-7.536263,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,arc_easy,-10.409652,-11.911125,-8.964296,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,boolq,-2.517839,-3.751529,-1.223242,0.0015,0.001941
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,commonsense_qa,-4.313404,-7.070707,-1.665302,0.0045,0.005657
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,copa,-8.333333,-16.333333,-0.325,0.0505,0.056253
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,hellaswag,-9.958176,-10.562388,-9.353963,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,lambada_openai,-1.235526,-2.464584,0.013099,0.0525,0.05775
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,mmlu,-7.102502,-7.94996,-6.217004,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,openbookqa,-6.933333,-10.401667,-3.533333,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,piqa,-5.785274,-7.091041,-4.315832,0.0005,0.000667
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,winogrande,-2.341489,-5.261773,0.552486,0.1235,0.127859
+three-seed mean,permissiveness,4096,Comma - FineWeb-Edu,avg,-6.249347,-7.207691,-5.286831,0.0005,0.0005
+three-seed mean,interaction,4096,MV - non-permissive,arc_challenge,2.246871,-0.08568,4.622085,0.0655,0.120083
+three-seed mean,interaction,4096,MV - non-permissive,arc_easy,0.673401,-0.814219,2.202932,0.3955,0.547938
+three-seed mean,interaction,4096,MV - non-permissive,boolq,0.682977,-1.340979,2.691259,0.5295,0.658263
+three-seed mean,interaction,4096,MV - non-permissive,commonsense_qa,5.951406,2.470311,9.090909,0.0005,0.001571
+three-seed mean,interaction,4096,MV - non-permissive,copa,1.333333,-6.666667,8.666667,0.7155,0.78705
+three-seed mean,interaction,4096,MV - non-permissive,hellaswag,4.09613,3.418932,4.75005,0.0005,0.001571
+three-seed mean,interaction,4096,MV - non-permissive,lambada_openai,-1.95032,-3.354033,-0.507391,0.0055,0.013444
+three-seed mean,interaction,4096,MV - non-permissive,mmlu,3.747092,2.537507,4.954215,0.0005,0.001571
+three-seed mean,interaction,4096,MV - non-permissive,openbookqa,-0.733333,-4.434167,3.134167,0.6935,0.78241
+three-seed mean,interaction,4096,MV - non-permissive,piqa,0.480595,-1.006529,1.895403,0.5115,0.658263
+three-seed mean,interaction,4096,MV - non-permissive,winogrande,0.999737,-2.657195,4.592213,0.5685,0.658263
+three-seed mean,interaction,4096,MV - non-permissive,avg,1.593444,0.610453,2.536642,0.0045,0.006
+three-seed mean,interaction,4096,Comma - non-permissive,arc_challenge,2.701934,0.141852,5.347341,0.0445,0.089
+three-seed mean,interaction,4096,Comma - non-permissive,arc_easy,5.260943,3.689675,6.902708,0.0005,0.001571
+three-seed mean,interaction,4096,Comma - non-permissive,boolq,4.475025,2.298547,6.682085,0.0005,0.001571
+three-seed mean,interaction,4096,Comma - non-permissive,commonsense_qa,7.944308,4.586405,10.988261,0.0005,0.001571
+three-seed mean,interaction,4096,Comma - non-permissive,copa,4.0,-4.666667,12.5,0.3555,0.5214
+three-seed mean,interaction,4096,Comma - non-permissive,hellaswag,3.996548,3.382419,4.594038,0.0005,0.001571
+three-seed mean,interaction,4096,Comma - non-permissive,lambada_openai,-0.456045,-1.866308,0.951145,0.5595,0.658263
+three-seed mean,interaction,4096,Comma - non-permissive,mmlu,1.183355,0.010623,2.353772,0.0485,0.092783
+three-seed mean,interaction,4096,Comma - non-permissive,openbookqa,5.066667,1.666667,8.7,0.0055,0.013444
+three-seed mean,interaction,4096,Comma - non-permissive,piqa,1.115343,-0.299465,2.611761,0.1185,0.193111
+three-seed mean,interaction,4096,Comma - non-permissive,winogrande,1.710076,-2.039595,5.248619,0.3475,0.5214
+three-seed mean,interaction,4096,Comma - non-permissive,avg,3.363468,2.380317,4.361348,0.0005,0.001
+three-seed mean,front-loading,16384,MV,arc_challenge,2.531286,0.483504,4.664391,0.0205,0.03608
+three-seed mean,front-loading,16384,MV,arc_easy,2.805836,1.388889,4.152988,0.0005,0.001128
+three-seed mean,front-loading,16384,MV,boolq,9.949032,8.460499,11.264526,0.0005,0.001128
+three-seed mean,front-loading,16384,MV,commonsense_qa,27.245427,24.187824,30.30303,0.0005,0.001128
+three-seed mean,front-loading,16384,MV,copa,-9.0,-16.0,-3.0,0.0105,0.01925
+three-seed mean,front-loading,16384,MV,hellaswag,1.838943,1.29448,2.426475,0.0005,0.001128
+three-seed mean,front-loading,16384,MV,lambada_openai,-2.205835,-3.350799,-1.093214,0.0005,0.001128
+three-seed mean,front-loading,16384,MV,mmlu,15.161658,14.20263,16.1919,0.0005,0.001128
+three-seed mean,front-loading,16384,MV,openbookqa,-2.8,-5.8,0.4,0.0885,0.1416
+three-seed mean,front-loading,16384,MV,piqa,-0.018136,-1.305767,1.287631,0.9885,1.0
+three-seed mean,front-loading,16384,MV,winogrande,-0.052618,-3.053802,3.078795,0.9975,1.0
+three-seed mean,front-loading,16384,MV,avg,4.132327,3.297072,4.976955,0.0005,0.000667
+three-seed mean,front-loading,16384,Comma,arc_challenge,2.929465,0.796359,5.119454,0.0075,0.015
+three-seed mean,front-loading,16384,Comma,arc_easy,3.872054,2.511223,5.218855,0.0005,0.001128
+three-seed mean,front-loading,16384,Comma,boolq,14.108053,12.578746,15.657492,0.0005,0.001128
+three-seed mean,front-loading,16384,Comma,commonsense_qa,27.900628,24.924925,30.903631,0.0005,0.001128
+three-seed mean,front-loading,16384,Comma,copa,-2.333333,-7.666667,3.0,0.4465,0.553408
+three-seed mean,front-loading,16384,Comma,hellaswag,1.224856,0.667115,1.785916,0.0005,0.001128
+three-seed mean,front-loading,16384,Comma,lambada_openai,-3.719516,-4.864804,-2.445178,0.0005,0.001128
+three-seed mean,front-loading,16384,Comma,mmlu,13.526088,12.427005,14.637041,0.0005,0.001128
+three-seed mean,front-loading,16384,Comma,openbookqa,2.333333,-0.666667,5.333333,0.1335,0.199119
+three-seed mean,front-loading,16384,Comma,piqa,-0.253899,-1.577802,1.124864,0.7125,0.825
+three-seed mean,front-loading,16384,Comma,winogrande,-1.552223,-4.446198,1.289792,0.2605,0.347333
+three-seed mean,front-loading,16384,Comma,avg,5.275955,4.513864,6.010216,0.0005,0.000667
+three-seed mean,front-loading,16384,Nemotron,arc_challenge,0.056883,-1.82025,1.820961,0.9435,1.0
+three-seed mean,front-loading,16384,Nemotron,arc_easy,0.701459,-0.378788,1.767677,0.2055,0.287048
+three-seed mean,front-loading,16384,Nemotron,boolq,2.782875,1.488277,4.077472,0.0005,0.001128
+three-seed mean,front-loading,16384,Nemotron,commonsense_qa,9.71881,7.070707,12.340977,0.0005,0.001128
+three-seed mean,front-loading,16384,Nemotron,copa,-1.333333,-8.666667,6.0,0.7345,0.839429
+three-seed mean,front-loading,16384,Nemotron,hellaswag,-2.230631,-2.695429,-1.755875,0.0005,0.001128
+three-seed mean,front-loading,16384,Nemotron,lambada_openai,-1.494275,-2.574552,-0.362249,0.0085,0.016622
+three-seed mean,front-loading,16384,Nemotron,mmlu,3.22841,2.394899,4.083108,0.0005,0.001128
+three-seed mean,front-loading,16384,Nemotron,openbookqa,-3.466667,-6.535,-0.733333,0.0125,0.022449
+three-seed mean,front-loading,16384,Nemotron,piqa,-0.96119,-2.049329,0.218081,0.1225,0.1925
+three-seed mean,front-loading,16384,Nemotron,winogrande,-1.499605,-3.972639,1.026046,0.2495,0.337785
+three-seed mean,front-loading,16384,Nemotron,avg,0.500249,-0.359687,1.341247,0.2415,0.276
+three-seed mean,front-loading,16384,FineWeb-Edu,arc_challenge,1.934016,-0.085324,3.981797,0.0605,0.098593
+three-seed mean,front-loading,16384,FineWeb-Edu,arc_easy,0.85578,-0.266554,2.06229,0.1305,0.198
+three-seed mean,front-loading,16384,FineWeb-Edu,boolq,7.869521,6.269113,9.449541,0.0005,0.001128
+three-seed mean,front-loading,16384,FineWeb-Edu,commonsense_qa,35.025935,31.968332,38.165438,0.0005,0.001128
+three-seed mean,front-loading,16384,FineWeb-Edu,copa,-2.0,-7.0,2.0,0.5185,0.633722
+three-seed mean,front-loading,16384,FineWeb-Edu,hellaswag,-2.18084,-2.758664,-1.649655,0.0005,0.001128
+three-seed mean,front-loading,16384,FineWeb-Edu,lambada_openai,-1.694806,-2.885051,-0.511029,0.0035,0.007512
+three-seed mean,front-loading,16384,FineWeb-Edu,mmlu,19.515264,18.468286,20.578799,0.0005,0.001128
+three-seed mean,front-loading,16384,FineWeb-Edu,openbookqa,-0.733333,-4.0,2.266667,0.6715,0.809479
+three-seed mean,front-loading,16384,FineWeb-Edu,piqa,0.036271,-1.160682,1.215089,0.9955,1.0
+three-seed mean,front-loading,16384,FineWeb-Edu,winogrande,-1.210208,-3.94633,1.552223,0.3565,0.468239
+three-seed mean,front-loading,16384,FineWeb-Edu,avg,5.219782,4.473179,5.931477,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,arc_challenge,-10.750853,-12.827076,-8.67463,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,arc_easy,-10.185185,-11.672278,-8.795946,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,boolq,-7.06422,-8.409786,-5.840979,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,commonsense_qa,-13.349713,-16.052416,-10.728911,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,copa,-14.0,-22.333333,-5.991667,0.0015,0.001941
+three-seed mean,permissiveness,16384,MV - Nemotron,hellaswag,-14.764655,-15.475005,-14.06418,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,lambada_openai,-8.92037,-10.130507,-7.749531,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,mmlu,-8.44609,-9.341321,-7.536794,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,openbookqa,-6.4,-9.666667,-3.066667,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,piqa,-7.725789,-9.357998,-6.166123,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - Nemotron,winogrande,-5.10392,-8.024862,-1.867929,0.0025,0.003188
+three-seed mean,permissiveness,16384,MV - Nemotron,avg,-9.700981,-10.617818,-8.739328,0.0005,0.0005
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,arc_challenge,-9.47099,-11.660978,-7.222696,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,arc_easy,-8.5578,-10.016835,-7.154531,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,boolq,-4.801223,-6.147044,-3.567533,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,commonsense_qa,-6.934207,-9.474474,-4.421922,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,copa,-12.0,-19.0,-5.0,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,hellaswag,-9.569807,-10.190533,-8.935803,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,lambada_openai,-6.475192,-7.671906,-5.259072,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,mmlu,-5.265157,-6.183829,-4.346425,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,openbookqa,-10.266667,-13.868333,-6.533333,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,piqa,-6.692057,-8.161498,-5.204933,0.0005,0.000667
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,winogrande,-3.920021,-6.788345,-0.710339,0.0195,0.02288
+three-seed mean,permissiveness,16384,MV - FineWeb-Edu,avg,-7.632102,-8.530574,-6.759856,0.0005,0.0005
+three-seed mean,permissiveness,16384,Comma - Nemotron,arc_challenge,-9.67008,-11.860779,-7.593146,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - Nemotron,arc_easy,-9.41358,-10.816849,-8.024691,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - Nemotron,boolq,-1.264016,-2.497452,-0.010194,0.0465,0.052462
+three-seed mean,permissiveness,16384,Comma - Nemotron,commonsense_qa,-12.503413,-14.987715,-9.93721,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - Nemotron,copa,-7.333333,-15.666667,0.666667,0.0805,0.08639
+three-seed mean,permissiveness,16384,Comma - Nemotron,hellaswag,-13.991237,-14.685156,-13.274248,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - Nemotron,lambada_openai,-4.799793,-5.996669,-3.583511,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - Nemotron,mmlu,-9.212838,-10.093648,-8.291732,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - Nemotron,openbookqa,-2.466667,-5.666667,0.8,0.1415,0.143126
+three-seed mean,permissiveness,16384,Comma - Nemotron,piqa,-6.837142,-8.378672,-5.25934,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - Nemotron,winogrande,-3.735859,-6.73507,-0.92081,0.0055,0.006722
+three-seed mean,permissiveness,16384,Comma - Nemotron,avg,-7.38436,-8.288561,-6.467524,0.0005,0.0005
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,arc_challenge,-8.390216,-10.466439,-6.313993,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,arc_easy,-7.786195,-9.119318,-6.368897,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,boolq,0.998981,-0.224261,2.273445,0.1005,0.105286
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,commonsense_qa,-6.087906,-8.681409,-3.385203,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,copa,-5.333333,-12.008333,1.341667,0.1405,0.143126
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,hellaswag,-8.796389,-9.410559,-8.175579,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,lambada_openai,-2.354615,-3.539039,-1.144641,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,mmlu,-6.031904,-6.912596,-5.063263,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,openbookqa,-6.333333,-9.733333,-3.266667,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,piqa,-5.80341,-7.254262,-4.316286,0.0005,0.000667
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,winogrande,-2.55196,-5.445935,0.132202,0.0705,0.076593
+three-seed mean,permissiveness,16384,Comma - FineWeb-Edu,avg,-5.31548,-6.146492,-4.409316,0.0005,0.0005
+three-seed mean,interaction,16384,MV - non-permissive,arc_challenge,1.535836,-0.938922,4.039391,0.2185,0.343357
+three-seed mean,interaction,16384,MV - non-permissive,arc_easy,2.027217,0.455948,3.605499,0.0115,0.0253
+three-seed mean,interaction,16384,MV - non-permissive,boolq,4.622834,2.741845,6.350663,0.0005,0.001571
+three-seed mean,interaction,16384,MV - non-permissive,commonsense_qa,4.873055,1.37831,8.176358,0.0055,0.013444
+three-seed mean,interaction,16384,MV - non-permissive,copa,-7.333333,-16.5,1.0,0.0915,0.16104
+three-seed mean,interaction,16384,MV - non-permissive,hellaswag,4.044679,3.380759,4.748473,0.0005,0.001571
+three-seed mean,interaction,16384,MV - non-permissive,lambada_openai,-0.611294,-1.969807,0.750695,0.3985,0.547938
+three-seed mean,interaction,16384,MV - non-permissive,mmlu,3.789821,2.746433,4.960179,0.0005,0.001571
+three-seed mean,interaction,16384,MV - non-permissive,openbookqa,-0.7,-4.466667,3.3,0.7665,0.803
+three-seed mean,interaction,16384,MV - non-permissive,piqa,0.444324,-1.07023,2.058397,0.5625,0.658263
+three-seed mean,interaction,16384,MV - non-permissive,winogrande,1.302289,-2.131018,4.933241,0.4455,0.594
+three-seed mean,interaction,16384,MV - non-permissive,avg,1.272311,0.255406,2.327502,0.0215,0.0215
+three-seed mean,interaction,16384,Comma - non-permissive,arc_challenge,1.934016,-0.469283,4.408419,0.1185,0.193111
+three-seed mean,interaction,16384,Comma - non-permissive,arc_easy,3.093434,1.585122,4.608761,0.0005,0.001571
+three-seed mean,interaction,16384,Comma - non-permissive,boolq,8.781855,6.748089,10.785041,0.0005,0.001571
+three-seed mean,interaction,16384,Comma - non-permissive,commonsense_qa,5.528256,2.36077,8.517609,0.0005,0.001571
+three-seed mean,interaction,16384,Comma - non-permissive,copa,-0.666667,-8.504167,7.666667,0.8785,0.89893
+three-seed mean,interaction,16384,Comma - non-permissive,hellaswag,3.430592,2.78497,4.089864,0.0005,0.001571
+three-seed mean,interaction,16384,Comma - non-permissive,lambada_openai,-2.124976,-3.473866,-0.640404,0.0065,0.015053
+three-seed mean,interaction,16384,Comma - non-permissive,mmlu,2.154252,1.012142,3.310337,0.0015,0.0044
+three-seed mean,interaction,16384,Comma - non-permissive,openbookqa,4.433333,0.966667,7.8,0.0165,0.034571
+three-seed mean,interaction,16384,Comma - non-permissive,piqa,0.20856,-1.342265,1.786589,0.7595,0.803
+three-seed mean,interaction,16384,Comma - non-permissive,winogrande,-0.197316,-3.618127,3.117601,0.9015,0.9015
+three-seed mean,interaction,16384,Comma - non-permissive,avg,2.41594,1.463686,3.417976,0.0005,0.001

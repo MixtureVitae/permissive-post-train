@@ -1,0 +1,89 @@
+table,row,label,input,run,checkpoint,results_files,patched_copy,run_dates
+Table 10,abl.noinst.base,MV-noinstruct,R16,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT,11,no,2026-10-10
+Table 10,abl.noinst.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 10,abl.noinst.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 10,abl.noinst16k.base,MV-noinstruct-16k,R16,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-longsft_16k,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-longsft_16k,6,yes,2026-10-15
+Table 10,abl.noinst16k.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-longsft_16k-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-longsft_16k-SFT-Tulu3-decontaminated,11,no,2026-07-29
+Table 10,abl.noinst16k.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-longsft_16k-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-web_curated-100BT-longsft_16k-DPO-Tulu3-decontaminated,6,yes,2026-10-15
+Table 10,abl.noweb.base,MV-noweb,R16,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT,11,no,2026-10-10
+Table 10,abl.noweb.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 10,abl.noweb.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 10,abl.noweb16k.base,MV-noweb-16k,R16,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-longsft_16k,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-longsft_16k,6,yes,2026-10-15
+Table 10,abl.noweb16k.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-longsft_16k-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-longsft_16k-SFT-Tulu3-decontaminated,6,yes,2026-10-15
+Table 10,abl.noweb16k.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-longsft_16k-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-curated_instruct-100BT-longsft_16k-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 10,abl.mv100.base,MV,R16,ali-elganzory/1.7b-MixtureVitae-100BT,ali-elganzory/1.7b-MixtureVitae-100BT,11,no,2026-10-10
+Table 10,abl.mv100.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-100BT-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-100BT-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 10,abl.mv100.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-100BT-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-100BT-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 10,abl.mv100-16k.base,MV-16k,R16,ali-elganzory/1.7b-MixtureVitae-100BT-longsft_16k,ali-elganzory/1.7b-MixtureVitae-100BT-longsft_16k,5,yes,2026-10-15
+Table 10,abl.mv100-16k.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-100BT-longsft_16k-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-100BT-longsft_16k-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 10,abl.mv100-16k.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-100BT-longsft_16k-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-100BT-longsft_16k-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 11,main.comma.base,Comma0.1-300BT,R8,ontocord__1.7b-Comma0.1-300BT,ontocord/1.7b-Comma0.1-300BT,11,no,2026-05-06
+Table 11,main.comma.sft,→SFT,R16,ali-elganzory/1.7b-Comma0.1-300BT-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-Comma0.1-300BT-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 11,main.comma.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-Comma0.1-300BT-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-Comma0.1-300BT-DPO-Tulu3-decontaminated,7,yes,2026-10-15
+Table 11,main.mv.base,MV,R8,ontocord__1.7b-MixtureVitae-300BT-v1-decontaminated,ontocord/1.7b-MixtureVitae-300BT-v1-decontaminated,11,no,2026-05-06
+Table 11,main.mv.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-SFT-Tulu3-decontaminated,6,yes,2026-10-15
+Table 11,main.mv.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-DPO-Tulu3-decontaminated,6,yes,2026-10-15
+Table 11,main.mv16k.base,MV-16k,R8,ontocord__1.7b-MixtureVitae-300BT-v1-decontaminated-16k,ontocord/1.7b-MixtureVitae-300BT-v1-decontaminated-16k,11,no,2026-05-06
+Table 11,main.mv16k.sft,→SFT,R8,ali-elganzory__1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated,11,no,2026-05-06
+Table 11,main.mv16k.dpo,→SFT →DPO,R8,ali-elganzory__1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated,11,no,2026-05-06
+Table 11,main.qwen25.base,Qwen2.5-1.5B,R16,Qwen/Qwen2.5-1.5B,Qwen/Qwen2.5-1.5B,5,yes,2026-10-15
+Table 11,main.qwen25.sft,→SFT,R16,ali-elganzory/Qwen2.5-1.5B-SFT-Tulu3-decontaminated,ali-elganzory/Qwen2.5-1.5B-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 11,main.qwen25.dpo,→SFT →DPO,R16,ali-elganzory/Qwen2.5-1.5B-DPO-Tulu3-decontaminated,ali-elganzory/Qwen2.5-1.5B-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 11,main.qwen3.base,Qwen3-1.7B,R16,Qwen/Qwen3-1.7B-Base,Qwen/Qwen3-1.7B-Base,6,yes,2026-10-15
+Table 11,main.qwen3.sft,→SFT,R16,ali-elganzory/Qwen3-1.7B-Base-SFT-Tulu3-decontaminated,ali-elganzory/Qwen3-1.7B-Base-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 11,main.qwen3.dpo,→SFT →DPO,R16,ali-elganzory/Qwen3-1.7B-Base-DPO-Tulu3-decontaminated,ali-elganzory/Qwen3-1.7B-Base-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 11,main.smollm2.base,SmolLM2-1.7B,R16,ali-elganzory/SmolLM2-1.7B-WithChatTemplate,ali-elganzory/SmolLM2-1.7B-WithChatTemplate,6,yes,2026-10-15
+Table 11,main.smollm2.sft,→SFT,R16,ali-elganzory/SmolLM2-1.7B-SFT-Tulu3-decontaminated,ali-elganzory/SmolLM2-1.7B-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 11,main.smollm2.dpo,→SFT →DPO,R16,ali-elganzory/SmolLM2-1.7B-DPO-Tulu3-decontaminated,ali-elganzory/SmolLM2-1.7B-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 11,main.fineweb.base,FineWeb-Edu-300BT,R8-fineweb,open-sci__open-sci-ref-v0.02-1.7b-fineweb-edu-1.4t-300B-4096,open-sci/open-sci-ref-v0.02-1.7b-fineweb-edu-1.4t-300B-4096,11,no,2026-05-08
+Table 11,main.fineweb.sft,→SFT,R8-fineweb,ali-elganzory__open-sci-ref-v0.02-1.7b-fineweb-edu-1.4t-300B-4096-SFT-Tulu3-decontaminated,ali-elganzory/open-sci-ref-v0.02-1.7b-fineweb-edu-1.4t-300B-4096-SFT-Tulu3-decontaminated,11,no,2026-05-08
+Table 11,main.fineweb.dpo,→SFT →DPO,R8-fineweb,ali-elganzory__open-sci-ref-v0.02-1.7b-fineweb-edu-1.4t-300B-4096-DPO-Tulu3-decontaminated,ali-elganzory/open-sci-ref-v0.02-1.7b-fineweb-edu-1.4t-300B-4096-DPO-Tulu3-decontaminated,11,no,2026-05-08
+Table 11,main.nemotron.base,Nemotron,R8,open-sci__open-sci-ref-v0.02-1.7b-nemotron-hq-300B-4096,open-sci/open-sci-ref-v0.02-1.7b-nemotron-hq-300B-4096,11,no,2026-05-06
+Table 11,main.nemotron.sft,→SFT,R8,ali-elganzory__open-sci-ref-v0.02-1.7b-nemotron-hq-300B-16k-SFT-Tulu3-decontaminated,ali-elganzory/open-sci-ref-v0.02-1.7b-nemotron-hq-300B-16k-SFT-Tulu3-decontaminated,11,no,2026-05-06
+Table 11,main.nemotron.dpo,→SFT →DPO,R8,ali-elganzory__open-sci-ref-v0.02-1.7b-nemotron-hq-300B-16k-DPO-Tulu3-decontaminated,ali-elganzory/open-sci-ref-v0.02-1.7b-nemotron-hq-300B-16k-DPO-Tulu3-decontaminated,11,no,2026-05-06
+Table 12,decon.orig.mv.base,MV,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-WithChatTemplate,ali-elganzory/1.7b-MixtureVitae-300BT-v1-WithChatTemplate,11,no,2026-10-10
+Table 12,decon.orig.mv.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-SFT-Tulu3,ali-elganzory/1.7b-MixtureVitae-300BT-v1-SFT-Tulu3,11,no,2026-10-10
+Table 12,decon.orig.mv.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-DPO-Tulu3,ali-elganzory/1.7b-MixtureVitae-300BT-v1-DPO-Tulu3,11,no,2026-10-10
+Table 12,decon.orig.mv16k.base,MV-16k,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-16k-WithChatTemplate,ali-elganzory/1.7b-MixtureVitae-300BT-v1-16k-WithChatTemplate,11,no,2026-10-10
+Table 12,decon.orig.mv16k.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-16k-SFT-Tulu3,ali-elganzory/1.7b-MixtureVitae-300BT-v1-16k-SFT-Tulu3,11,no,2026-10-10
+Table 12,decon.orig.mv16k.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-16k-DPO-Tulu3,ali-elganzory/1.7b-MixtureVitae-300BT-v1-16k-DPO-Tulu3,11,no,2026-10-10
+Table 12,decon.clean.mv.base,MV,R8,ontocord__1.7b-MixtureVitae-300BT-v1-decontaminated,ontocord/1.7b-MixtureVitae-300BT-v1-decontaminated,11,no,2026-05-06
+Table 12,decon.clean.mv.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-SFT-Tulu3-decontaminated,6,yes,2026-10-15
+Table 12,decon.clean.mv.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-DPO-Tulu3-decontaminated,6,yes,2026-10-15
+Table 12,decon.clean.mv16k.base,MV-16k,R8,ontocord__1.7b-MixtureVitae-300BT-v1-decontaminated-16k,ontocord/1.7b-MixtureVitae-300BT-v1-decontaminated-16k,11,no,2026-05-06
+Table 12,decon.clean.mv16k.sft,→SFT,R8,ali-elganzory__1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated,11,no,2026-05-06
+Table 12,decon.clean.mv16k.dpo,→SFT →DPO,R8,ali-elganzory__1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated,11,no,2026-05-06
+Table 13,small.bag.base,Baguettotron,R16,ali-elganzory/Baguettotron,ali-elganzory/Baguettotron,6,yes,2026-10-15
+Table 13,small.bag.sft,→SFT,R16,ali-elganzory/Baguettotron-SFT-Tulu3-decontaminated,ali-elganzory/Baguettotron-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 13,small.bag.dpo,→SFT →DPO,R16,ali-elganzory/Baguettotron-DPO-Tulu3-decontaminated,ali-elganzory/Baguettotron-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 13,small.bag16k.base,Baguettotron 16k,R16,ali-elganzory/Baguettotron-longsft_16k,ali-elganzory/Baguettotron-longsft_16k,6,yes,2026-10-15
+Table 13,small.bag16k.sft,→SFT,R16,ali-elganzory/Baguettotron-longsft_16k-SFT-Tulu3-decontaminated,ali-elganzory/Baguettotron-longsft_16k-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 13,small.bag16k.dpo,→SFT →DPO,R16,ali-elganzory/Baguettotron-longsft_16k-DPO-Tulu3-decontaminated,ali-elganzory/Baguettotron-longsft_16k-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 13,small.mv04.base,MV (0.4B),R16,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096,11,no,2026-10-10
+Table 13,small.mv04.sft,→SFT,R16,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-SFT-Tulu3-decontaminated,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 13,small.mv04.dpo,→SFT →DPO,R16,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-DPO-Tulu3-decontaminated,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 13,small.mv04-16k.base,MV-16k (0.4B),R16,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-longsft_16k,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-longsft_16k,11,no,2026-10-10
+Table 13,small.mv04-16k.sft,→SFT,R16,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-longsft_16k-SFT-Tulu3-decontaminated,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-longsft_16k-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 13,small.mv04-16k.dpo,→SFT →DPO,R16,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-longsft_16k-DPO-Tulu3-decontaminated,ali-elganzory/0.4b-mixturevitae-v1-decontaminated-300B-4096-longsft_16k-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 14,phase2.mv16k.sft-ot3,→SFT →OT30K,R8,open-sci__sft__ot30k_1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated,open-sci/sft__ot30k_1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated,11,no,2026-05-06
+Table 14,phase2.mv16k.dpo-ot3,→SFT →DPO →OT30K,R8,open-sci__sft__ot30k_1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated,open-sci/sft__ot30k_1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated,11,no,2026-05-06
+Table 14,phase2.mv16k.ot3,→OT30K (without Tulu3),R8,open-sci__sft__ot30k_1.7b-MixtureVitae-300BT-v1-decontaminated-16k,open-sci/sft__ot30k_1.7b-MixtureVitae-300BT-v1-decontaminated-16k,11,no,2026-05-06
+Table 14,phase2.comma16k.sft-ot3,→SFT →OT30K,R8,open-sci__sft__ot30k_1.7b-Comma0.1-300BT-longsft_16k-SFT-Tulu3-decontaminated,open-sci/sft__ot30k_1.7b-Comma0.1-300BT-longsft_16k-SFT-Tulu3-decontaminated,11,no,2026-05-06
+Table 14,phase2.comma16k.dpo-ot3,→SFT →DPO →OT30K,R8,open-sci__sft__ot30k_1.7b-Comma0.1-300BT-longsft_16k-DPO-Tulu3-decontaminate,open-sci/sft__ot30k_1.7b-Comma0.1-300BT-longsft_16k-DPO-Tulu3-decontaminate,11,no,2026-05-06
+Table 14,phase2.fineweb16k.sft-ot3,→SFT →OT30K,R8-fineweb,open-sci__sft__ot30k_open-sci-ref-v0.02-1.7b-fineweb-edu-1.4t-300B-4096-longsft_16k-SFT-Tulu3,open-sci/sft__ot30k_open-sci-ref-v0.02-1.7b-fineweb-edu-1.4t-300B-4096-longsft_16k-SFT-Tulu3,11,no,2026-05-29
+Table 14,phase2.nemotron16k.sft-ot3,→SFT →OT30K,R8,open-sci__sft__ot30k_open-sci-ref-v0.02-1.7b-nemotron-hq-300B-16k-SFT-Tulu3-decontaminated,open-sci/sft__ot30k_open-sci-ref-v0.02-1.7b-nemotron-hq-300B-16k-SFT-Tulu3-decontaminated,11,no,2026-05-06
+Table 14,phase2.nemotron16k.dpo-ot3,→SFT →DPO →OT30K,R8,open-sci__sft__ot30k_open-sci-ref-v0.02-1.7b-nemotron-hq-300B-16k-DPO-Tulu3-decontaminated,open-sci/sft__ot30k_open-sci-ref-v0.02-1.7b-nemotron-hq-300B-16k-DPO-Tulu3-decontaminated,11,no,2026-05-06
+Table 14,phase2.qwen25.sft-ot3,→SFT →OT30K,R16,open-sci/sft__ot30k_Qwen2.5-1.5B-SFT-Tulu3-decontaminated,open-sci/sft__ot30k_Qwen2.5-1.5B-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 14,phase2.qwen25.dpo-ot3,→SFT →DPO →OT30K,R16,open-sci/sft__ot30k_Qwen2.5-1.5B-DPO-Tulu3-decontaminated,open-sci/sft__ot30k_Qwen2.5-1.5B-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 14,phase2.qwen3.sft-ot3,→SFT →OT30K,R16,open-sci/sft__ot30k_Qwen3-1.7B-Base-SFT-Tulu3-decontaminated,open-sci/sft__ot30k_Qwen3-1.7B-Base-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 14,phase2.qwen3.dpo-ot3,→SFT →DPO →OT30K,R16,open-sci/sft__ot30k_Qwen3-1.7B-Base-DPO-Tulu3-decontaminated,open-sci/sft__ot30k_Qwen3-1.7B-Base-DPO-Tulu3-decontaminated,11,no,2026-10-10
+Table 14,phase2.smollm2-16k.sft-ot3,→SFT →OT30K,R16,open-sci/sft__ot30k_SmolLM2-1.7B-16k-SFT-Tulu3-decontaminated,open-sci/sft__ot30k_SmolLM2-1.7B-16k-SFT-Tulu3-decontaminated,11,no,2026-10-10
+Table 14,phase2.smollm2-instruct-16k.ot3,→OT30K,R16,open-sci/sft__ot30k_SmolLM2-1.7B-Instruct-16k,open-sci/sft__ot30k_SmolLM2-1.7B-Instruct-16k,6,yes,2026-10-15
+Table 16,mask.masked.mv.sft,→SFT,R17,laion/1.7b-MixtureVitae-300BT-v1-decontaminated-SFT-Tulu3-decontaminated-masked,laion/1.7b-MixtureVitae-300BT-v1-decontaminated-SFT-Tulu3-decontaminated-masked,11,no,2026-10-12
+Table 16,mask.masked.mv.dpo,→SFT →DPO,R17,laion/1.7b-MixtureVitae-300BT-v1-decontaminated-DPO-Tulu3-decontaminated-masked,laion/1.7b-MixtureVitae-300BT-v1-decontaminated-DPO-Tulu3-decontaminated-masked,11,no,2026-10-12
+Table 16,mask.masked.mv16k.sft,→SFT,R17,laion/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated-masked,laion/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated-masked,11,no,2026-10-12
+Table 16,mask.masked.mv16k.dpo,→SFT →DPO,R17,laion/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated-masked,laion/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated-masked,11,no,2026-10-12
+Table 16,mask.unmasked.mv.sft,→SFT,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-SFT-Tulu3-decontaminated,6,yes,2026-10-15
+Table 16,mask.unmasked.mv.dpo,→SFT →DPO,R16,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-DPO-Tulu3-decontaminated,6,yes,2026-10-15
+Table 16,mask.unmasked.mv16k.sft,→SFT,R8,ali-elganzory__1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-SFT-Tulu3-decontaminated,11,no,2026-05-06
+Table 16,mask.unmasked.mv16k.dpo,→SFT →DPO,R8,ali-elganzory__1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated,ali-elganzory/1.7b-MixtureVitae-300BT-v1-decontaminated-16k-DPO-Tulu3-decontaminated,11,no,2026-05-06

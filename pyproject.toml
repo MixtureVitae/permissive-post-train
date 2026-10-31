@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mv_post_train"
+version = "0.1.0"
+description = "Writes every table, figure and result number of the MixtureVitae post-training paper from its evaluation records."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "MV post-training team"}]
+license = {text = "MIT"}
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "pyarrow>=14",
+    "pydantic>=2.0",
+    "scipy>=1.10",
+    "statsmodels>=0.14",
+    "tqdm>=4.65",
+    "math-verify>=0.5",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+# Running the tests.
+test = ["pytest>=8"]
+# Re-scoring IFEval and HumanEval from saved answers (`ifeval-rescore`,
+# `code-rescore`), with the vendored checkers under data/ifeval_checker and
+# data/code_exec. The paper's tables do not need these.
+rescore = ["absl-py", "immutabledict", "langdetect", "nltk", "fire", "regex"]
+# Counting the tokens of the Phase 2 answers (`measure-phase2-answers`), which
+# writes input R14-lengths. The version is pinned because the counts, and so
+# the file's SHA-256, depend on it. The paper's tables do not need it.
+measure = ["tokenizers==0.22.1"]
+# Matching the other reasoning corpora's questions against OpenThoughts3
+# (`measure-question-overlap`, stats/question_overlap.py) with corpus-assay,
+# the 13-gram detector that grew out of the MixtureVitae decontamination. The
+# version is pinned because its normalization decides the matches.
+overlap = ["corpus-assay==0.1.0"]
+
+[project.scripts]
+mvpt = "mv_post_train.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mv_post_train*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+mv_post_train = ["inputs.json"]
