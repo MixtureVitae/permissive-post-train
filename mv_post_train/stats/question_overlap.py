@@ -60,6 +60,13 @@ question gets one row:
 The reference file (`ot3_questions.parquet`) has one row per distinct OT3
 question: qid, source, domain, n_rows (rows of OT3 that ask it),
 in_phase2, question.
+
+With `--trained-dir`, the 30K samples the Phase 2 runs trained on (TRAINED,
+ShareGPT parquet folders) are matched instead of the releases: every question,
+not a sample. A subset is then the record's own domain label, `stage` is its
+training stage where the record has one, and each question is its own cluster,
+so the intervals of `rates` resample questions. The rows go to
+`question_overlap_trained.parquet`.
 """
 from __future__ import annotations
 
@@ -143,6 +150,17 @@ SUBSETS = (
     Subset("Superior-Reasoning", "stage 2", *SR,
            ("Superior-Reasoning-SFT-gpt-oss-120b-stage2-train-data.jsonl",)),
 )
+
+#: The 30K samples the Phase 2 runs trained on: one folder each, as marianna13
+#: wrote them (a uniform random 30,000 records of the release, ShareGPT
+#: `conversations`, parquet under data/). They are not public. Nemotron-Cascade's
+#: is drawn from stage 1 only.
+TRAINED = {
+    "AceReason": "AceReason-1.1-SFT-30k-sharegpt-hf",
+    "Nemotron-Cascade": "Nemotron-Cascade-SFT-Stage-1-30k-sharegpt-hf",
+    "Superior-Reasoning": "Superior-Reasoning-SFT-gpt-oss-120b-30k-sharegpt-hf",
+}
+TRAINED_ROWS = 30_000
 
 SEP = "<|endoftext|>"
 
@@ -392,6 +410,50 @@ def sample(s: Subset) -> pd.DataFrame:
     df.insert(2, "dataset", s.dataset)
     df.insert(3, "revision", s.revision)
     return df
+
+
+def _stage(corpus: str, record: dict) -> str | None:
+    """The training stage of a trained-sample record: Superior-Reasoning's
+    records carry it in `meta`, and Nemotron-Cascade's sample is all stage 1."""
+    if corpus == "Nemotron-Cascade":
+        return "stage1"
+    meta = record.get("meta")
+    if isinstance(meta, str):
+        meta = json.loads(meta)
+    return meta.get("training_stage") if isinstance(meta, dict) else None
+
+
+def trained_questions(trained_dir: Path) -> pd.DataFrame:
+    """One row per record of the TRAINED samples in `trained_dir`: corpus,
+    subset (the record's domain label), stage, cluster and position (its row),
+    domain and question."""
+    rows = []
+    for corpus, name in TRAINED.items():
+        files = sorted((trained_dir / name / "data").glob("*.parquet"))
+        records = pq.read_table(files).to_pylist()
+        if len(records) != TRAINED_ROWS:
+            raise ValueError(f"{trained_dir / name}: {len(records):,} rows, not {TRAINED_ROWS:,}")
+        for i, r in enumerate(records):
+            dom = _domain(r)
+            rows.append(dict(corpus=corpus, subset=dom or "none", dataset=name,
+                             stage=_stage(corpus, r), cluster=i, position=i,
+                             domain=dom, question=_question(r)))
+    return pd.DataFrame(rows)
+
+
+def main_trained(trained_dir: Path, out_dir: Path) -> int:
+    """Match every question of the TRAINED samples against the reference and
+    index that `main` built in `out_dir`."""
+    ref_path, index_path = out_dir / "ot3_questions.parquet", out_dir / "index" / "ot3.native"
+    if not (ref_path.exists() and index_path.exists()):
+        raise SystemExit(f"run measure-question-overlap without --trained-dir first: "
+                         f"it builds {ref_path} and {index_path}")
+    df = match(trained_questions(trained_dir), pd.read_parquet(ref_path), index_path,
+               out_dir / "scan_trained")
+    dest = out_dir / "question_overlap_trained.parquet"
+    df.to_parquet(dest, index=False)
+    print(f"  wrote {dest}: {len(df):,} trained questions")
+    return 0
 
 
 # ---------------------------------------------------------------------------

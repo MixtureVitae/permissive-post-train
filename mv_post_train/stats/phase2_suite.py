@@ -98,11 +98,14 @@ class Interval:
 class Scores:
     """Per-question scores of the Phase 2 checkpoints, checked against the
     manifest: {(key, task): Series by question} in percent, IFEval as
-    {key: (followed, instructions) by prompt}, and the code tasks' scores."""
+    {key: (followed, instructions) by prompt}, and the code tasks' scores.
+    `exclude` names questions (QUESTION values) to leave out of every
+    checkpoint, by task; the scores are then not the manifest's."""
     m: Manifest
     meta: pd.DataFrame
     ifeval: pd.DataFrame
     runs: tuple[int, ...] = ALL_RUNS
+    exclude: dict = field(default_factory=dict)
     _items: dict = field(default_factory=dict)
 
     def _rows(self, key: str, task: str) -> pd.DataFrame:
@@ -112,6 +115,7 @@ class Scores:
                      & frame["run_idx"].isin(self.runs)]
         if task != IFEVAL:
             rows = rows[rows["task"] == src["task"]]
+            rows = rows[~rows[QUESTION].isin(self.exclude.get(task, ()))]
         if rows.empty:
             raise ManifestError(f"No {task} records for {key}.")
         if rows.duplicated([PROMPT if task == IFEVAL else QUESTION, "run_idx"]).any():
@@ -120,7 +124,7 @@ class Scores:
 
     def _check(self, key: str, task: str, per_run: pd.Series) -> None:
         """The records' per-run scores must be the manifest's, in any order."""
-        if self.runs != ALL_RUNS:
+        if self.runs != ALL_RUNS or self.exclude:
             return
         ours = sorted(per_run.round(6).tolist())
         theirs = sorted(self.m.result(key, task)["per_seed"].values())

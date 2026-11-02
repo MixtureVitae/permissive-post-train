@@ -63,19 +63,20 @@ def table1_context(values: dict[str, str], family: str) -> str:
 
 
 def check_claims(values: dict[str, str]) -> None:
-    """Stop if a claim the abstract makes in words no longer holds for Table 1:
-    after Tulu3 SFT and DPO, MixtureVitae's 16K model scores more than twice every
-    original reference mixture and comes within five points of Qwen3-1.7B."""
+    """Stop if a claim that the text makes in words about Table 1 no longer holds:
+    after Tulu3 SFT and DPO, MixtureVitae's 16K model scores above every original
+    reference mixture (the abstract), and more than twice each of them (§3.1, the
+    16K Tulu3 drop)."""
     def dpo(family: str) -> float:
         return float(values[f"{FAMILY_KEY[family]}.{table1_context(values, family)}.dpo.avg"])
     mv = dpo("MV")
     top = max(ORIGINAL_REFERENCES, key=dpo)
+    if not mv > dpo(top):
+        raise ValueError(f"The abstract says that MixtureVitae after DPO ({mv}) scores above the "
+                         f"original reference mixtures, but {top} scores {dpo(top)}.")
     if not mv > 2 * dpo(top):
-        raise ValueError(f"The abstract says that MixtureVitae after DPO ({mv}) scores more than "
+        raise ValueError(f"§3.1 says that MixtureVitae after DPO ({mv}) scores more than "
                          f"twice the original reference mixtures, but {top} scores {dpo(top)}.")
-    if not dpo("Qwen3") - mv < 5:
-        raise ValueError(f"The abstract says that MixtureVitae after DPO ({mv}) comes within five "
-                         f"points of Qwen3-1.7B, which scores {dpo('Qwen3')}.")
 
 
 def phase1_table(summ: pd.DataFrame, out_dir: Path) -> Path:
@@ -103,6 +104,8 @@ def phase1_table(summ: pd.DataFrame, out_dir: Path) -> Path:
         r"Tulu3 and after each stage. MixtureVitae and Comma0.1 are permissive. Matched-compute "
         r"models" + "".join(f" and {n}" for n in extended) + " are at 16K context, "
         + " and ".join(released) + " at their released context. "
+        r"Scores are on the full benchmarks, which include items identified in the training data "
+        r"(Section~\ref{sec:methods-decontam}), so they are not uniformly held-out estimates. "
         r"Protocol~A (Appendix Table~\ref{tab:eval-settings-A} defines the abbreviations), means "
         f"over three decoding seeds, with suite-average SD $\\le$ {math.ceil(sd * 10) / 10:.1f}. "
         r"Appendix Table~\ref{tab:phase1_zoo_full} gives SDs and both context lengths.")

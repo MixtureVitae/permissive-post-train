@@ -43,6 +43,14 @@ FILES = {
     "R8": "language/language_eval-logs.zip",
     "R8-fineweb": "language/logs-fineweb.zip",
     "R6": "older/logs_without_gpqa_items.zip",
+    # the benchmark-overlap audit of the training data, as frozen on 2026-11-01
+    "O1": "overlap/excluded_items.csv",
+    "O2": "overlap/overlap_sensitivity.csv",
+    "O3": "overlap/found.parquet",
+    "O4": "overlap/mv_question_overlap_rates.csv",
+    "O5": "overlap/mv_question_overlap_rates_ot3.csv",
+    "O6": "overlap/phase2_tokens.csv",
+    "O7": "overlap/phase2_ot3_release.csv",
     # copies; their original sources stay in inputs.json after this one
     "R13": "protocol_a/canonical_reasoning_per_sample.csv",
     "R13-language": "language/ablation_frontloading_x_permissiveness_language_evaluations.csv",

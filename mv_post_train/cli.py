@@ -33,10 +33,12 @@ Subcommands:
   check-inputs             hash every local input and compare it with its pin
   fetch-phase2-records     download the three-seed Phase 2 records at a fixed revision
   measure-phase2-answers   the length in tokens of every sampled Phase 2 answer (R14-lengths)
+  measure-phase2-tokens    the training tokens of each Phase 2 reasoning dataset
   snapshot-checkpoints     save Hugging Face records for every checkpoint and its parents
   build-manifest           build results/manifest.json, the authoritative reasoning results
   render-phase2            render the Phase 2 tables, Figure 2 and text macros from the manifest
   render-phase2-analyses   render the Phase 2 analyses: intervals, domain changes, cut-off answers
+  render-overlap           render Table 4 without the identified benchmark items, and the audit's tables
   render-frontloading      render the revision's front-loading study, with Comma0.1 added
   render-language-intervals  render language-suite changes with question-level intervals
   render-statistics        render the statistics appendix (Tables 26 and 27) and its text macros
@@ -467,6 +469,20 @@ def build_parser() -> argparse.ArgumentParser:
     ma.add_argument("--snapshot", type=Path, default=Path(paths.HF_CHECKPOINTS))
     ma.add_argument("--out-dir", type=Path, default=Path(paths.PHASE2_3SEED_DIR))
 
+    pt = sub.add_parser("measure-phase2-tokens",
+                        help="Count the tokens and supervised tokens of each Phase 2 "
+                             "dataset in LLaMA-Factory's tokenized caches "
+                             "(stats/phase2_tokens.py).")
+    pt.add_argument("--tokenized-dir", type=Path, default=None,
+                    help="The folder holding the caches of phase2_tokens.CACHES.")
+    pt.add_argument("--ot3-release-dir", type=Path, default=None,
+                    help="Read the OT3 30K as released (phase2_tokens.OT3_RELEASE, its "
+                         "parquet files) instead: what the cut removed, how the answers end. "
+                         "Needs --tokenizer and the `measure` extra.")
+    pt.add_argument("--tokenizer", type=Path, default=None,
+                    help="The open-sci tokenizer.json, for --ot3-release-dir.")
+    pt.add_argument("--out-dir", type=Path, default=Path(paths.PHASE2_TOKENS_DIR))
+
     qo = sub.add_parser("measure-question-overlap",
                         help="Sample the questions of AceReason, Nemotron-Cascade and "
                              "Superior-Reasoning and measure how much of each is in an "
@@ -477,6 +493,94 @@ def build_parser() -> argparse.ArgumentParser:
     qo.add_argument("--out-dir", type=Path, default=Path(paths.QUESTION_OVERLAP_DIR))
     qo.add_argument("--subsets", nargs="*", default=None,
                     help="Only these corpora or subsets (default: all of SUBSETS).")
+    qo.add_argument("--trained-dir", type=Path, default=None,
+                    help="Match every question of the 30K samples the Phase 2 runs trained "
+                         "on (question_overlap.TRAINED, folders in this directory) instead "
+                         "of sampling the releases. Needs the reference and index of a "
+                         "run without it.")
+
+    mo = sub.add_parser("measure-mv-question-overlap",
+                        help="Match every question of the 30K reasoning samples trained on "
+                             "against MixtureVitae's other reasoning shards with corpus-assay "
+                             "(stats/mv_question_overlap.py): `prepare` the index, scan each "
+                             "`shard` (183 GB in all; one cluster array task each), `merge`. "
+                             "Needs the `overlap` extra.")
+    mo.add_argument("step", choices=["prepare", "shard", "merge"])
+    mo.add_argument("name", nargs="?", default=None,
+                    help="shard: the shard's name (mv_question_overlap.SHARDS, e.g. math-0).")
+    mo.add_argument("--trained-dir", type=Path, default=None,
+                    help="prepare: the folders of question_overlap.TRAINED.")
+    mo.add_argument("--ot3-release-dir", type=Path, default=None,
+                    help="prepare: the OT3 30K as released (phase2_tokens.OT3_RELEASE), "
+                         "instead of --trained-dir; use its own --out-dir.")
+    mo.add_argument("--shard-file", type=Path, default=None,
+                    help="shard: the downloaded .jsonl.gz, checked against its SHA-256.")
+    mo.add_argument("--workers", type=int, default=None)
+    mo.add_argument("--ot3-dir", type=Path, default=Path(paths.QUESTION_OVERLAP_DIR),
+                    help="merge: where question_overlap_trained.parquet is, to add the OT3 "
+                         "matches.")
+    mo.add_argument("--out-dir", type=Path, default=Path(paths.MV_QUESTION_OVERLAP_DIR))
+
+    to = sub.add_parser("measure-training-data-overlap",
+                        help="Match the post-training data with a public release (long_sft, "
+                             "Tulu3 SFT and DPO) against the paper's 22 benchmarks with "
+                             "corpus-assay (stats/training_data_overlap.py). Needs the logs "
+                             "with the GPQA Diamond items, network access (5 GB of data and "
+                             "4.4 GB of LiveCodeBench streamed) and the `overlap` extra.")
+    to.add_argument("--logs", type=Path, default=Path("artifacts/logs.zip"))
+    to.add_argument("--out-dir", type=Path, default=Path(paths.TRAINING_DATA_OVERLAP_DIR))
+    to.add_argument("--datasets", nargs="*", default=None,
+                    help="Only these datasets (default: all of DATASETS).")
+    to.add_argument("--reasoning-questions", action="store_true",
+                    help="Scan the OpenThoughts3 questions and the reasoning-corpus samples of "
+                         "measure-question-overlap instead.")
+
+    sb = sub.add_parser("scan-benchmarks",
+                        help="Match the paper's benchmarks against the training data only a "
+                             "cluster holds, the Phase 2 30K samples as trained and as written "
+                             "and MixtureVitae's reasoning shards (stats/benchmark_scan.py): "
+                             "decode the Phase 2 caches (`texts`), `scan` each source (one "
+                             "cluster task each), `merge`. Needs the `overlap` extra.")
+    sb.add_argument("step", choices=["texts", "scan", "merge"])
+    sb.add_argument("source", nargs="?", default=None,
+                    help="scan: a benchmark_scan.SOURCES entry, e.g. phase2:AceReason, "
+                         "sample:AceReason or mv:math-0.")
+    sb.add_argument("--file", type=Path, default=None,
+                    help="scan: the decoded cache, the folder of the 30K samples, or the shard.")
+    sb.add_argument("--tokenized-dir", type=Path, default=None,
+                    help="texts: the folder holding phase2_tokens.CACHES.")
+    sb.add_argument("--tokenizer", type=Path, default=None,
+                    help="texts: a folder with the open-sci tokenizer.")
+    sb.add_argument("--work-dir", type=Path, default=Path(paths.BENCHMARK_SCAN_DIR))
+    sb.add_argument("--out-dir", type=Path, default=Path(paths.TRAINING_DATA_OVERLAP_DIR),
+                    help="merge: where benchmark_scan.parquet goes.")
+    sb.add_argument("--workers", type=int, default=None)
+
+    os_ = sub.add_parser("measure-overlap-sensitivity",
+                         help="Recompute the Phase 2, factorial and language comparisons without "
+                              "the benchmark items found in the training data "
+                              "(stats/overlap_sensitivity.py). Needs the outputs of "
+                              "measure-training-data-overlap, with and without "
+                              "--reasoning-questions.")
+    os_.add_argument("--manifest", type=Path, default=Path(paths.MANIFEST))
+    os_.add_argument("--out-dir", type=Path, default=Path(paths.TRAINING_DATA_OVERLAP_DIR))
+    os_.add_argument("--phase2-dir", type=Path, default=Path(paths.PHASE2_3SEED_DIR))
+    os_.add_argument("--data-dir", type=Path, default=Path("data/workshop"))
+    os_.add_argument("--log-dir", type=Path, default=Path(paths.LANGUAGE_LOGS_DIR))
+
+    mp = sub.add_parser("build-memorization-probes",
+                        help="Write the CommonsenseQA memorization probes that "
+                             "mv_post_train/gpu/score_texts.py scores on a GPU "
+                             "(stats/memorization.py). Needs the outputs of "
+                             "measure-overlap-sensitivity.")
+    mp.add_argument("--out-dir", type=Path, default=Path(paths.TRAINING_DATA_OVERLAP_DIR))
+
+    mm = sub.add_parser("measure-memorization",
+                        help="Compare the checkpoints' scores on the memorization probes: "
+                             "trained-on against clean questions across each Tulu3 SFT step, "
+                             "and the bases' validation against test questions "
+                             "(stats/memorization.py). Needs <out-dir>/memorization/scores.")
+    mm.add_argument("--out-dir", type=Path, default=Path(paths.TRAINING_DATA_OVERLAP_DIR))
 
     sc = sub.add_parser("snapshot-checkpoints",
                         help="Save Hugging Face records (repos, weight hashes, model cards, "
@@ -508,6 +612,14 @@ def build_parser() -> argparse.ArgumentParser:
     rp.add_argument("--figures-dir", type=Path, default=Path(paths.PHASE2_FIGURES_DIR))
     rp.add_argument("--art-dir", type=Path, default=Path(paths.PHASE2_ARTIFACTS_DIR),
                     help="Where to write the comparison with the submitted numbers.")
+
+    ro = sub.add_parser("render-overlap",
+                        help="Render the benchmark-overlap audit in the paper: Table 4 without the "
+                             "identified items, the tables of Appendices A.3 and E, and the \\povl "
+                             "macros (render/overlap.py, inputs O1 to O5).")
+    ro.add_argument("--manifest", type=Path, default=Path(paths.MANIFEST))
+    ro.add_argument("--phase2-dir", type=Path, default=Path(paths.PHASE2_3SEED_DIR))
+    ro.add_argument("--out-dir", type=Path, default=Path(paths.OVERLAP_DIR))
 
     ra = sub.add_parser("render-phase2-analyses",
                         help="Render the Phase 2 analyses for the camera-ready: intervals for "
@@ -694,9 +806,64 @@ def main(argv: list[str] | None = None) -> int:
         responses = args.responses or Path(_inputs.get("R14-responses").local)
         return answer_lengths.main(responses, args.manifest, args.snapshot, args.out_dir)
 
+    if args.cmd == "measure-phase2-tokens":
+        from .stats import phase2_tokens
+        if args.ot3_release_dir is not None:
+            if args.tokenizer is None:
+                raise SystemExit("--ot3-release-dir needs --tokenizer")
+            return phase2_tokens.main_release(args.ot3_release_dir, args.tokenizer,
+                                              args.out_dir, args.tokenized_dir)
+        if args.tokenized_dir is None:
+            raise SystemExit("measure-phase2-tokens needs --tokenized-dir or --ot3-release-dir")
+        return phase2_tokens.main(args.tokenized_dir, args.out_dir)
+
     if args.cmd == "measure-question-overlap":
         from .stats import question_overlap
+        if args.trained_dir:
+            return question_overlap.main_trained(args.trained_dir, args.out_dir)
         return question_overlap.main(args.raw_dir, args.out_dir, args.subsets)
+
+    if args.cmd == "measure-mv-question-overlap":
+        from .stats import mv_question_overlap as mq
+        if args.step == "prepare":
+            if args.trained_dir is None and args.ot3_release_dir is None:
+                raise SystemExit("prepare needs --trained-dir or --ot3-release-dir")
+            return mq.prepare(args.trained_dir, args.out_dir, args.ot3_release_dir)
+        if args.step == "shard":
+            if args.name is None or args.shard_file is None:
+                raise SystemExit("shard needs a name and --shard-file")
+            return mq.shard(args.name, args.shard_file, args.out_dir, args.workers)
+        return mq.merge(args.out_dir, args.ot3_dir)
+
+    if args.cmd == "measure-training-data-overlap":
+        from .stats import training_data_overlap
+        return training_data_overlap.main(args.logs, args.out_dir, args.datasets,
+                                          args.reasoning_questions)
+
+    if args.cmd == "scan-benchmarks":
+        from .stats import benchmark_scan as bs
+        if args.step == "texts":
+            if args.tokenized_dir is None or args.tokenizer is None:
+                raise SystemExit("texts needs --tokenized-dir and --tokenizer")
+            return bs.texts(args.tokenized_dir, args.tokenizer, args.work_dir)
+        if args.step == "scan":
+            if args.source is None or args.file is None:
+                raise SystemExit("scan needs a source and --file")
+            return bs.scan(args.source, args.work_dir, args.file, args.workers)
+        return bs.merge(args.work_dir, args.out_dir)
+
+    if args.cmd == "measure-overlap-sensitivity":
+        from .stats import overlap_sensitivity
+        return overlap_sensitivity.main(args.manifest, args.out_dir, args.phase2_dir,
+                                        args.data_dir, args.log_dir)
+
+    if args.cmd == "build-memorization-probes":
+        from .stats import memorization
+        return memorization.build(args.out_dir)
+
+    if args.cmd == "measure-memorization":
+        from .stats import memorization
+        return memorization.main(args.out_dir)
 
     if args.cmd == "snapshot-checkpoints":
         from .manifest import hf_snapshot
@@ -706,6 +873,10 @@ def main(argv: list[str] | None = None) -> int:
         from .render import phase2 as render_phase2
         return render_phase2.main(args.manifest, args.phase2_dir, args.tables_dir,
                                   args.figures_dir, args.art_dir)
+
+    if args.cmd == "render-overlap":
+        from .render import overlap
+        return overlap.main(args.manifest, args.phase2_dir, args.out_dir)
 
     if args.cmd == "render-phase2-analyses":
         from .render import phase2_analyses

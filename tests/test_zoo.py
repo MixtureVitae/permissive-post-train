@@ -23,7 +23,7 @@ def committed() -> dict[str, str]:
     return parse_macros(TABLES / "zoo_numbers.tex")[1]
 
 
-def test_abstract_claims_hold_for_the_committed_numbers():
+def test_the_text_claims_hold_for_the_committed_numbers():
     zoo.check_claims(committed())
 
 
@@ -35,11 +35,10 @@ def test_check_stops_when_a_reference_scores_more_than_half_of_mixturevitae():
         zoo.check_claims(values)
 
 
-def test_check_stops_when_qwen3_is_five_points_ahead():
+def test_check_stops_when_a_reference_scores_above_mixturevitae():
     values = committed()
-    key = f"qwen3.{zoo.table1_context(values, 'Qwen3')}.dpo.avg"
-    values[key] = f"{float(values['mv.16k.dpo.avg']) + 5:.1f}"
-    with pytest.raises(ValueError, match="within five"):
+    values["dclm.16k.dpo.avg"] = f"{float(values['mv.16k.dpo.avg']) + 0.1:.1f}"
+    with pytest.raises(ValueError, match="scores above"):
         zoo.check_claims(values)
 
 

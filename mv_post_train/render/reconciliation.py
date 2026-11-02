@@ -89,11 +89,14 @@ class Pairing:
     shows: str                  # what the submitted table shows
     generated: str              # the revision's table, under the results root
     kind: str                   # "phase2", "zoo", "older" or "language"
-    renames: tuple[tuple[str, str], ...] = ()   # submitted model name -> the revision's
+    renames: tuple[tuple[str, str], ...] = ()   # submitted model, stage or section -> the revision's
     added: tuple[str, ...] = ()  # labels of revised rows the submission does not have
 
 
 ZOO_NAMES = ((r"^MV", "MixtureVitae"), (r"^Nemotron", "Nemotron-CC-HQ"), (r"-16k$", "-16K"))
+#: The revision names the two arms of the decontamination tables by the historical filtering.
+FILTERING = ((r"^Not Decontaminated$", "Without filtering"),
+             (r"^Decontaminated$", "With filtering"))
 PAIRINGS = (
     Pairing("Table 1", "Phase 2", "results/phase2/tables/phase2_endpoints_full.tex", "phase2"),
     Pairing("Table 2", "Phase 1", "results/zoo/tables/phase1_zoo_full.tex", "zoo",
@@ -103,14 +106,15 @@ PAIRINGS = (
     Pairing("Table 4", "100B ablation", "results/older/tables/ablation_100b_reasoning.tex",
             "older"),
     Pairing("Table 5", "Decontamination", "results/older/tables/decontamination_reasoning.tex",
-            "older"),
+            "older", renames=FILTERING),
     Pairing("Table 6", "0.4B scale", "results/older/tables/smallscale_reasoning.tex", "older"),
     Pairing("Table 7", "100B ablation",
             "results/language_suite/tables/language_ablation_100b.tex", "language"),
     Pairing("Table 8", "Main comparison",
             "results/language_suite/tables/language_main.tex", "language"),
     Pairing("Table 9", "Decontamination",
-            "results/language_suite/tables/language_decontamination.tex", "language"),
+            "results/language_suite/tables/language_decontamination.tex", "language",
+            renames=FILTERING),
     Pairing("Table 10", "0.4B scale",
             "results/language_suite/tables/language_smallscale.tex", "language"),
     Pairing("Table 11", "Phase 2",
@@ -169,11 +173,11 @@ def _norm(label: str) -> str:
 
 
 def _submitted_label(row: sub.Row, renames) -> str:
-    """The submitted row's label, with each rename applied to its model and its stage."""
-    model, stage = row.model, row.stage
+    """The submitted row's label, with each rename applied to its section, model and stage."""
+    section, model, stage = row.section or "", row.model, row.stage or ""
     for pattern, repl in renames:
-        model, stage = re.sub(pattern, repl, model), re.sub(pattern, repl, stage or "")
-    return _norm(" / ".join(x for x in (row.section, model, stage) if x))
+        section, model, stage = (re.sub(pattern, repl, x) for x in (section, model, stage))
+    return _norm(" / ".join(x for x in (section, model, stage) if x))
 
 
 def _values(rev_row) -> list[float | None]:

@@ -71,6 +71,12 @@ STARTS = (("base", "16K extended checkpoint"), ("SFT-Tulu3", "Tulu3 SFT checkpoi
 SIGNIFICANCE = 0.05
 
 
+def significant(q: float) -> bool:
+    """q < SIGNIFICANCE, where a q that equals it up to rounding (0.049999999999999996
+    for 0.0025 x 20) is not below it."""
+    return q < SIGNIFICANCE - 1e-9
+
+
 def corpus_stage(prefix: str, start: str) -> str:
     return {"base": prefix, "SFT-Tulu3": f"{prefix}+SFT", "DPO-Tulu3": f"{prefix}+DPO"}[start]
 
@@ -210,7 +216,7 @@ class HeldoutCell:
 
     @property
     def sign(self) -> str:
-        if self.change.q >= SIGNIFICANCE:
+        if not significant(self.change.q):
             return ""
         return "+" if self.change.estimate > 0 else "-"
 
@@ -405,7 +411,7 @@ ABLATION_GROUPS = {"AIME24": "Mathematics", "AIME25": "Mathematics", "AMC23": "M
                    "LiveCodeBench": "Code", "MBPP": "Code", "GPQA-Diamond": "Science/QA",
                    "JEEBench": "Science/QA"}
 #: Table 3's two models, in print order, with their block titles.
-ABLATION_TITLES = ((MV, "With OT3 in pretraining"), (MV_NO_OT3, "Without OT3 in pretraining"))
+ABLATION_TITLES = ((MV, "With OT3 source"), (MV_NO_OT3, "Without OT3 source"))
 #: A mean with its SD below it, and a row label set on the mean's line.
 ABLATION_COMMANDS = (
     r"\newcommand{\otstat}[2]{\shortstack[c]{#1\\[-0.5pt]{\footnotesize $\pm #2$}}}",
@@ -464,8 +470,8 @@ def _ablation_table(m: Manifest, blocks, caption: str, label: str) -> list[str]:
             cells = [stat(*r.cells[t]) for t in tasks] + [stat(*r.avg)]
             lines.append(f"\\otstage{{{name}}} & " + " & ".join(cells) + r" \\[3pt]")
     (_, _, with_), (_, _, without) = pairs
-    note = (r"\textbf{Suite-average gain:} with OT3, " + gain(with_) + "; without OT3, "
-            + gain(without) + " points.")
+    note = (r"\textbf{Suite-average gain:} with the OT3 source, " + gain(with_)
+            + ", without it, " + gain(without) + " points.")
     lines += [r"\bottomrule", r"\end{tabular*}", r"\par", r"\endgroup", "", r"\vspace{3pt}",
               r"\noindent\begin{minipage}{\linewidth}\footnotesize",
               note, r"\end{minipage}", r"\end{table}", ""]
@@ -474,9 +480,10 @@ def _ablation_table(m: Manifest, blocks, caption: str, label: str) -> list[str]:
 
 def ot3_pretrain_ablation(m: Manifest, blocks, out_dir: Path) -> Path:
     caption = (
-        r"\textbf{Effect of excluding OpenThoughts3 (OT3) from pretraining.} Two 1.7B models "
-        r"pretrained for 300B tokens receive the same OT3-30K update directly from their 16K "
-        r"extended checkpoints, without Tulu3. Cells show the mean over three sampled "
+        r"\textbf{Effect of excluding the OpenThoughts3 (OT3) source from pretraining.} Two "
+        r"1.7B models pretrained for 300B tokens, with and without the OT3 source, receive the "
+        r"same OT3-30K update directly from their 16K extended checkpoints, without Tulu3. "
+        r"Cells show the mean over three sampled "
         r"evaluations, with SD below. Avg is the unweighted mean of all "
         f"{number_word(len(m.tasks()))} benchmarks." + _excluded(m)
         + r" Evaluation follows Protocol~B.")
@@ -494,20 +501,15 @@ def heldout_mv_grid(m: Manifest, blocks, out_dir: Path) -> Path:
                   _blocks_panels(m, blocks, caption, "tab:heldout_mv_grid", "Reasoning corpus"))
 
 
-def heldout_reasoning(cells: list[HeldoutCell], out_dir: Path) -> Path:
-    n = len(cells)
-    caption = (
-        r"\textbf{The reasoning gain is not tied to OpenThoughts3.} Change in MATH500 "
-        r"accuracy when each base's Tulu3 SFT checkpoint receives 30K samples from one of "
-        r"four reasoning corpora, three of which are not named sources of any pretraining mixture "
-        r"considered here. Each problem is scored as its mean over three sampled runs. "
-        r"Brackets are 95\% paired bootstrap intervals over the same 500 problems. "
-        r"\textbf{Bold} marks a significant increase and \emph{italic} a significant "
-        f"decrease after Benjamini--Hochberg correction over the {n} changes. "
-        r"Protocol~B (Appendix Table~\ref{tab:eval-settings-B}).")
+def heldout_lines(values: dict[tuple[str, str], tuple[float, float, float, float]],
+                  caption: str, label: str) -> list[str]:
+    """Table 4's layout: one row per base of HELDOUT_BASES, one column per corpus of
+    CORPORA, each cell (base_model, corpus) -> (estimate, lo, hi, q) printed as the
+    change with its interval, bold for a significant increase and italic for a
+    significant decrease (q < SIGNIFICANCE)."""
     lines = [
         r"\begin{table}[t]", r"\centering", f"\\caption{{{caption}}}",
-        r"\label{tab:heldout_reasoning}", r"\small", r"\setlength{\tabcolsep}{4pt}",
+        f"\\label{{{label}}}", r"\small", r"\setlength{\tabcolsep}{4pt}",
         r"\resizebox{\linewidth}{!}{%", r"\begin{tabular}{l" + "r" * len(CORPORA) + "}",
         r"\toprule",
         r"\textbf{Base} & " + " & ".join(f"\\textbf{{{c}}}" for c, _ in CORPORA) + r" \\",
@@ -515,17 +517,38 @@ def heldout_reasoning(cells: list[HeldoutCell], out_dir: Path) -> Path:
     ]
     for bm in HELDOUT_BASES:
         row = []
-        for c in (c for c in cells if c.base_model == bm):
-            est = printed(c.change.estimate)
+        for corpus, _ in CORPORA:
+            estimate, lo, hi, q = values[(bm, corpus)]
+            est = printed(estimate)
+            sign = "" if not significant(q) else ("+" if estimate > 0 else "-")
             value = {"+": f"$\\bm{{{est:+.1f}}}$",
-                     "-": f"$\\mathit{{{est:+.1f}}}$"}.get(c.sign, f"${est:+.1f}$")
-            row.append(f"{value} {{\\scriptsize$[{printed(c.change.lo):+.1f}, "
-                       f"{printed(c.change.hi):+.1f}]$}}")
+                     "-": f"$\\mathit{{{est:+.1f}}}$"}.get(sign, f"${est:+.1f}$")
+            row.append(f"{value} {{\\scriptsize$[{printed(lo):+.1f}, {printed(hi):+.1f}]$}}")
         lines.append(MODELS[bm][0] + " & " + " & ".join(row) + r" \\")
         if bm == MV:
             lines.append(r"\midrule")
     lines += [r"\bottomrule", r"\end{tabular}}", r"\end{table}", ""]
-    return _write(out_dir, "heldout_reasoning.tex", lines)
+    return lines
+
+
+def heldout_reasoning(cells: list[HeldoutCell], out_dir: Path) -> Path:
+    """Table 4 on all 500 problems, in the appendix. The main text's Table 4 leaves
+    out the problems the benchmark-overlap audit identified (render/overlap.py)."""
+    n = len(cells)
+    caption = (
+        r"\textbf{MATH500 changes on all 500 problems.} Change in MATH500 accuracy when each "
+        r"base's Tulu3 SFT checkpoint receives 30K samples from one of four reasoning corpora, "
+        r"on every problem, including those identified in the training data. "
+        r"Table~\ref{tab:heldout_reasoning} gives the same changes without them. "
+        r"Each problem is scored as its mean over three sampled runs. "
+        r"Brackets are 95\% paired bootstrap intervals over the same 500 problems. "
+        r"\textbf{Bold} marks a significant increase and \emph{italic} a significant "
+        f"decrease after Benjamini--Hochberg correction over the {n} changes. "
+        r"Protocol~B (Appendix Table~\ref{tab:eval-settings-B}).")
+    values = {(c.base_model, c.corpus): (c.change.estimate, c.change.lo, c.change.hi, c.change.q)
+              for c in cells}
+    return _write(out_dir, "heldout_reasoning.tex",
+                  heldout_lines(values, caption, "tab:heldout_reasoning_full"))
 
 
 def eval_settings(m: Manifest, out_dir: Path) -> Path:

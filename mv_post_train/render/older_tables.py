@@ -107,10 +107,10 @@ TABLES = (
 #: (base row label, context key, base, SFT and DPO checkpoints).
 O = A + "1.7b-MixtureVitae-300BT-v1-"
 DECON = (
-    ("Not Decontaminated", "orig", (
+    ("Without filtering", "orig", (
         ("MV", "4k", O + "WithChatTemplate", O + "SFT-Tulu3", O + "DPO-Tulu3"),
         ("MV-16k", "16k", O + "16k-WithChatTemplate", O + "16k-SFT-Tulu3", O + "16k-DPO-Tulu3"))),
-    ("Decontaminated", "clean", (
+    ("With filtering", "clean", (
         ("MV", "4k", O + "decontaminated", O + "decontaminated-SFT-Tulu3-decontaminated",
          O + "decontaminated-DPO-Tulu3-decontaminated"),
         ("MV-16k", "16k", O + "decontaminated-16k",
@@ -124,10 +124,10 @@ _M = "laion/1.7b-MixtureVitae-300BT-v1-decontaminated-{}-Tulu3-decontaminated-ma
 MASKED = {("4k", "sft"): _M.format("SFT"), ("4k", "dpo"): _M.format("DPO"),
           ("16k", "sft"): _M.format("16k-SFT"), ("16k", "dpo"): _M.format("16k-DPO")}
 DECON_CAPTION = (
-    r"Reasoning suite comparison between decontaminated and non-decontaminated 300B "
-    r"MixtureVitae checkpoints at 4K and 16K context, before and after Phase 1 Tulu3 SFT/DPO. "
-    r"Decontamination changes some base scores, but the post-training picture remains the same: "
-    r"the gains reported in the main paper persist after decontamination." + NOTE)
+    r"Reasoning suite of 300B MixtureVitae checkpoints trained without and with the historical "
+    r"13-gram filtering of their data, at 4K and 16K context, before and after Phase 1 Tulu3 "
+    r"SFT/DPO, a check of that procedure, not of benchmark-disjoint data "
+    r"(Appendix~\ref{app:decontam})." + NOTE)
 MASKING_CAPTION = (
     r"Reasoning suite with vs.\ without prompt-token loss masking in Phase-1 post-training "
     r"(1.7B MixtureVitae 300BT, decontaminated). The rows with "

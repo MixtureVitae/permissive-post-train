@@ -39,6 +39,7 @@ manifest's scores. The setup tables also read `config/paper_setup.toml`.
 | `phase2-analyses` | `mvpt render-phase2-analyses` | the manifest, R14-scores, R14-meta, R14-ifeval, R14-lengths | `results/phase2_analyses/` |
 | `frontloading` | `mvpt render-frontloading` | the manifest, R13, R15, R20, R21 | `results/frontloading/` |
 | `older` | `mvpt render-older-tables` | the manifest | `results/older/` |
+| `overlap` | `mvpt render-overlap` | the manifest, O1 to O7, R14-meta | `results/overlap/` |
 | `statistics` | `mvpt render-statistics` | the manifest, R13, R18, R20, R21 | `results/statistics/` |
 | `language-suite` | `mvpt render-language-suite` | the manifest | `results/language_suite/` |
 | `setup` | `mvpt render-setup` | the manifest, C-setup, S2-0.4b, S2-1.7b, R14-meta, R13-language | `results/setup/` |
@@ -81,7 +82,15 @@ and can differ from the published paper's; the paper file names do not.
 | Phase 2 endpoints and changes (main text, since the Table 2 update) | `results/phase2_analyses/tables/phase2_endpoints.tex` | `tables/phase2_endpoints.tex` |
 | Figure 3 | `results/phase2/figures/phase2_receptivity.pdf` | `figures/phase2_receptivity.pdf` |
 | Table 4 | `results/phase2/tables/ot3_pretrain_ablation.tex` | `tables/ot3_pretrain_ablation.tex` |
-| Table 5 | `results/phase2/tables/heldout_reasoning.tex` | `tables/heldout_reasoning.tex` |
+| Table 4 on all 500 problems (Appendix E) | `results/phase2/tables/heldout_reasoning.tex` | `tables/heldout_reasoning.tex` |
+| Table 4 | `results/overlap/tables/heldout_reasoning_retained.tex` | `tables/heldout_reasoning_retained.tex` |
+| Overlap filtering and audit coverage (Appendix A.3) | `results/overlap/tables/overlap_coverage.tex` | `tables/overlap_coverage.tex` |
+| Benchmark items identified (Appendix A.3) | `results/overlap/tables/overlap_items.tex` | `tables/overlap_items.tex` |
+| Principal comparisons with and without the items (Appendix A.3) | `results/overlap/tables/overlap_results.tex` | `tables/overlap_results.tex` |
+| Every comparison without the items (Appendix A.3) | `results/overlap/tables/overlap_summary.tex` | `tables/overlap_summary.tex` |
+| Calls that change without the items (Appendix A.3) | `results/overlap/tables/overlap_calls.tex` | `tables/overlap_calls.tex` |
+| Phase 2 samples in MixtureVitae's pool (Appendix E) | `results/overlap/tables/corpus_overlap.tex` | `tables/corpus_overlap.tex` |
+| Training tokens of each reasoning dataset (Appendix A.2) | `results/overlap/tables/phase2_tokens.tex` | `tables/phase2_tokens.tex` |
 | Table 32 | `results/phase2/tables/heldout_mv_grid.tex` | `tables/heldout_mv_grid.tex` |
 | `\ptwo` macros | `results/phase2/tables/phase2_numbers.tex` | `tables/phase2_numbers.tex` |
 | Phase 2 changes with intervals (statistics appendix) | `results/phase2_analyses/tables/phase2_change_intervals.tex` | `tables/phase2_change_intervals.tex` |
@@ -92,6 +101,7 @@ and can differ from the published paper's; the paper file names do not.
 | Answers cut off at the token limit (statistics appendix) | `results/phase2_analyses/tables/phase2_cutoff.tex` | `tables/phase2_cutoff.tex` |
 | Answers with no final answer (statistics appendix) | `results/phase2_analyses/tables/phase2_no_answer.tex` | `tables/phase2_no_answer.tex` |
 | `\ptwoan` macros | `results/phase2_analyses/tables/phase2_analyses_numbers.tex` | `tables/phase2_analyses_numbers.tex` |
+| `\povl` macros | `results/overlap/tables/overlap_numbers.tex` | `tables/overlap_numbers.tex` |
 | Table 2 | `results/frontloading/tables/factorial_summary.tex` | `tables/factorial_summary.tex` |
 | Figure 2 | `results/frontloading/figures/factorial_main.pdf` | `figures/factorial_main.pdf` |
 | Table 28 | `results/frontloading/tables/contrasts.tex` | `tables/contrasts.tex` |

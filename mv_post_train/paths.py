@@ -98,6 +98,18 @@ PHASE2_3SEED_DIR:            str = "data/phase2_3seed"
 # shards, which the reference questions are read from once.
 QUESTION_OVERLAP_DIR:        str = "data/overlap"
 OVERLAP_OT3_RAW_DIR:         str = "data/overlap/ot3_raw"
+# The post-training data against the paper's benchmarks
+# (stats/training_data_overlap.py): the downloaded data, the benchmark items
+# (with the GPQA Diamond questions, so never published) and the scans.
+TRAINING_DATA_OVERLAP_DIR:   str = "data/overlap/training_data"
+# Every question of the 30K reasoning samples against MixtureVitae's other
+# reasoning shards (stats/mv_question_overlap.py): index, per-shard results.
+MV_QUESTION_OVERLAP_DIR:     str = "data/overlap/mv_reasoning"
+# The benchmarks against the training data only a cluster holds
+# (stats/benchmark_scan.py): the Phase 2 caches decoded, per-source results.
+BENCHMARK_SCAN_DIR:          str = "data/overlap/benchmark_scan"
+# The training tokens of each Phase 2 dataset (stats/phase2_tokens.py).
+PHASE2_TOKENS_DIR:           str = "data/phase2_tokens"
 HF_CHECKPOINTS:              str = "data/manifest/hf_checkpoints.json"
 #: logs.zip without the GPQA Diamond items, input R6 (mv_post_train/inputs.json):
 #: the older evaluations.
@@ -145,3 +157,6 @@ SETUP_DIR:                   str = "results/setup"
 # Every cell of the submitted paper's results tables against the revision,
 # `mvpt render-reconciliation`. Not part of the paper.
 RECONCILIATION_DIR:          str = "results/reconciliation"
+# The benchmark-overlap audit in the paper: Table 4 without the identified items,
+# Appendices A.3 and E (render/overlap.py, `mvpt render-overlap`).
+OVERLAP_DIR:                 str = "results/overlap"

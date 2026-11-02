@@ -250,9 +250,11 @@ def endpoints_table(m: Manifest, main: dict, out_dir: Path) -> Path:
         r"\textbf{Reasoning post-training.} Every row receives the same OpenThoughts3-30K "
         r"update. Benchmark columns and the suite average are the endpoint, and $\Delta$ is the "
         r"change in the suite average from each row's starting checkpoint. Evaluation uses "
-        r"Protocol~B rather than Table~\ref{tab:phase1_zoo}'s Protocol~A. Starting scores and SDs "
-        r"are in Appendix Table~\ref{tab:phase2_endpoints_full}, and the interval method in "
-        r"Appendix~\ref{app:stats}." + pt._excluded(m))
+        r"Protocol~B rather than Table~\ref{tab:phase1_zoo}'s Protocol~A. "
+        r"Scores are on the full benchmarks, which include items identified in the training data "
+        r"(Section~\ref{sec:methods-decontam}), so they are not uniformly held-out estimates. "
+        r"Starting scores and SDs are in Appendix Table~\ref{tab:phase2_endpoints_full}, and the "
+        r"interval method in Appendix~\ref{app:stats}." + pt._excluded(m))
 
     def delta(u: pt.Update) -> str:
         iv = main[f"{pt.MODELS[u.after.row.base_model][1]}.{pt.stage_id(u.after.row.stage)}"]

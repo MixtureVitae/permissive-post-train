@@ -4,7 +4,7 @@ The code that writes every table, figure and result number of *Strong
 Post-Training from Permissive, Reasoning-Dominant Pretraining* (NeurIPS 2026) from its evaluation records, and checks them.
 
 Every input is a record file pinned by its SHA-256 in
-`mv_post_train/inputs.json`. They are all public: 22 in the Hugging Face
+`mv_post_train/inputs.json`. They are all public: 29 in the Hugging Face
 dataset
 [`permissive-post-train/evaluation-records`](https://huggingface.co/datasets/permissive-post-train/evaluation-records),
 and one small file in this repository, `config/paper_setup.toml`. `results/` holds every generated
@@ -17,7 +17,7 @@ git clone https://github.com/MixtureVitae/permissive-post-train
 cd permissive-post-train
 pip install -r requirements-lock.txt   # the exact versions results/ was built with
 pip install -e ".[test]"
-mvpt fetch-inputs      # the 23 inputs of the paper, 9 GB, each checked by its SHA-256
+mvpt fetch-inputs      # the 30 inputs of the paper, 9 GB, each checked by its SHA-256
 mvpt build --check     # rebuild every generated file and compare it with results/
 ```
 

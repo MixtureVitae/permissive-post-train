@@ -35,7 +35,7 @@ input.
 ## Files
 
 The IDs are the pipeline's input IDs. Table and figure numbers are those of the
-paper's revision of 2026-10-28.
+paper's revision of 2026-10-28, and for O1 to O7 those of 2026-11-01.
 
 | ID | File | Size | SHA-256 | What it holds |
 |---|---|---:|---|---|
@@ -60,6 +60,13 @@ paper's revision of 2026-10-28.
 | S1 | `snapshots/hf_checkpoints.json` | 173 kB | `4d4723136230…` | A snapshot of the Hugging Face records of every checkpoint the paper evaluates (repos, weight hashes, model cards, training summaries, context settings), taken on 2026-10-12 and 2026-10-13 and updated on 2026-10-31 with the Phase 2 checkpoints uploaded on 2026-10-30 and HuggingFaceTB's SmolLM2-1.7B-Instruct-16k. It gives each checkpoint's parent in the results manifest. |
 | S2-0.4b, S2-1.7b | `setup/*.config.json` | 1 kB each | `24a64d86ef89…`, `b2d8faeee3c6…` | The `config.json` of the 0.4B and 1.7B MV base models, the architectures of Table 5. |
 | R6 | `older/logs_without_gpqa_items.zip` | 416 MB | `2f9db28c0e7a…` | LM Evaluation Harness and Evalchemy results files of the older evaluations, January to May 2026, without the GPQA Diamond items (see below). No table of the paper prints them, but the results manifest keeps them. |
+| O1 | `overlap/excluded_items.csv` | 57 kB | `742229278d1a…` | The 1,720 benchmark items of 17 benchmarks that the audit of the training data identified, one row per benchmark and item ID. The comparisons without the identified items leave them out: Table 4 and Appendix A.3. |
+| O2 | `overlap/overlap_sensitivity.csv` | 75 kB | `623541e0a3f2…` | Every comparison of Phase 2, Table 4, the front-loading study and the language suite, with all items and without O1's, each with its estimate, 95% interval and Benjamini-Hochberg q-value: 647 rows. Appendix A.3. |
+| O3 | `overlap/found.parquet` | 1.5 MB | `e2536a6f4036…` | Where each item was found: the training dataset, its row and turn, the source within it, and the evidence (13-gram or exact). Appendix A.3's table of items found. |
+| O4 | `overlap/mv_question_overlap_rates.csv` | 1 kB | `2b7b2b45460b…` | The share of the questions of the AceReason, Nemotron-Cascade and Superior-Reasoning 30K samples trained on that match MixtureVitae's pretraining reasoning data other than OpenThoughts3, by domain. Appendix E. |
+| O5 | `overlap/mv_question_overlap_rates_ot3.csv` | 0.3 kB | `966ea7ba4e6b…` | The same for the Phase 2 OpenThoughts3 30K sample. Appendix E and §3.4. |
+| O6 | `overlap/phase2_tokens.csv` | 1 kB | `e9d8658a7418…` | The training tokens of the four Phase 2 30K samples as trained: length per sample, the share cut at 16,384 tokens, and the supervised tokens. Appendix A.2. |
+| O7 | `overlap/phase2_ot3_release.csv` | 0.4 kB | `94e064d554d3…` | The OpenThoughts3 30K sample as released, by domain: how many answers close their reasoning. Appendix A.2. |
 
 The full SHA-256 of each file is in `inputs.json`, which checks every download.
 
@@ -88,6 +95,13 @@ the pipeline writes this copy from the original.
 
 The paths with `/e/scratch/jureap59/` in the results files are the working
 directory of the cluster the evaluations ran on.
+
+**The benchmark-overlap audit** (O1 to O7) looked for the paper's benchmark
+items in the training data with 13-gram and exact matching. Its files hold
+item IDs, row numbers, dataset and shard names and counts, and no benchmark or
+training text. The pipeline's `docs/inputs.md` describes each file, and
+`mvpt render-overlap` turns them into the paper's Table 4, Appendix A.3 and the
+overlap numbers of the text.
 
 ## License
 

@@ -104,3 +104,28 @@ def test_corpus_assay_finds_a_wrapped_copy(tmp_path):
     assert (df.best_shared[:3] == df.n_grams[:3]).all()
     assert df.best_in_phase2.tolist() == [False, False, True, False]
     assert qo.levels(df)["most"].tolist() == [True, True, True, False]
+
+
+def test_trained_questions_read_every_record_with_its_stage(tmp_path, monkeypatch):
+    import pyarrow as pa
+    import pyarrow.parquet as pq
+    monkeypatch.setattr(qo, "TRAINED_ROWS", 2)
+    conv = lambda q: [{"from": "human", "value": q}, {"from": "gpt", "value": "a"}]
+    tables = {
+        "AceReason": {"conversations": [conv("q1"), conv("q2")], "category": ["math", "code"]},
+        "Nemotron-Cascade": {"conversations": [conv("q3"), conv("q4")], "category": ["science", "math"]},
+        "Superior-Reasoning": {"conversations": [conv("q5"), conv("q6")], "domain": ["code", "math"],
+                               "meta": [{"training_stage": "stage2"}, {"training_stage": "stage1"}]},
+    }
+    for corpus, cols in tables.items():
+        d = tmp_path / qo.TRAINED[corpus] / "data"
+        d.mkdir(parents=True)
+        pq.write_table(pa.table(cols), d / "train-00000-of-00001.parquet")
+    df = qo.trained_questions(tmp_path)
+    assert df.question.tolist() == ["q1", "q2", "q3", "q4", "q5", "q6"]
+    assert df.subset.tolist() == ["math", "code", "science", "math", "code", "math"]
+    assert df.stage.fillna("-").tolist() == ["-", "-", "stage1", "stage1", "stage2", "stage1"]
+    assert df.cluster.tolist() == [0, 1, 0, 1, 0, 1]
+    monkeypatch.setattr(qo, "TRAINED_ROWS", 3)
+    with pytest.raises(ValueError, match="not 3"):
+        qo.trained_questions(tmp_path)

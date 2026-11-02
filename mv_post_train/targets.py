@@ -60,6 +60,11 @@ def _frontloading(root: Path) -> int:
                              root / paths.FRONTLOADING_DIR, root / paths.FRONTLOADING_ARTIFACTS_DIR)
 
 
+def _overlap(root: Path) -> int:
+    from .render import overlap
+    return overlap.main(root / paths.MANIFEST, Path(paths.PHASE2_3SEED_DIR), root / paths.OVERLAP_DIR)
+
+
 def _older(root: Path) -> int:
     from .render import older_tables
     return older_tables.main(root / paths.MANIFEST, root / paths.OLDER_TABLES_DIR)
@@ -110,6 +115,8 @@ TARGETS: tuple[Target, ...] = (
     Target("frontloading", "mvpt render-frontloading", ("R13", "R15", "R20", "R24", "R21", "R22"), ("manifest",),
            paths.FRONTLOADING_DIR, _frontloading),
     Target("older", "mvpt render-older-tables", (), ("manifest",), paths.OLDER_TABLES_DIR, _older),
+    Target("overlap", "mvpt render-overlap", ("O1", "O2", "O3", "O4", "O5", "O6", "O7", "R14-meta"),
+           ("manifest",), paths.OVERLAP_DIR, _overlap),
     Target("statistics", "mvpt render-statistics", ("R13", "R18", "R20", "R24", "R21", "R22"), ("manifest",),
            paths.STATISTICS_DIR, _statistics),
     Target("language-suite", "mvpt render-language-suite", (), ("manifest",),
@@ -166,7 +173,7 @@ PAPER_FILES: tuple[PaperFile, ...] = (
     _pf("phase2-analyses", "results/phase2_analyses/tables/phase2_endpoints.tex", "tables/phase2_endpoints.tex", "Phase 2 endpoints and changes (main text, since the Table 2 update)"),
     _pf("phase2", "results/phase2/figures/phase2_receptivity.pdf", "figures/phase2_receptivity.pdf", "Figure 3"),
     _pf("phase2", "results/phase2/tables/ot3_pretrain_ablation.tex", "tables/ot3_pretrain_ablation.tex", "Table 4"),
-    _pf("phase2", "results/phase2/tables/heldout_reasoning.tex", "tables/heldout_reasoning.tex", "Table 5"),
+    _pf("phase2", "results/phase2/tables/heldout_reasoning.tex", "tables/heldout_reasoning.tex", "Table 4 on all 500 problems (Appendix E)"),
     _pf("phase2", "results/phase2/tables/heldout_mv_grid.tex", "tables/heldout_mv_grid.tex", "Table 32"),
     _pf("phase2", "results/phase2/tables/phase2_numbers.tex", "tables/phase2_numbers.tex", r"\ptwo macros"),
     _pf("phase2-analyses", "results/phase2_analyses/tables/phase2_change_intervals.tex", "tables/phase2_change_intervals.tex", "Phase 2 changes with intervals (statistics appendix)"),
@@ -177,6 +184,15 @@ PAPER_FILES: tuple[PaperFile, ...] = (
     _pf("phase2-analyses", "results/phase2_analyses/tables/phase2_cutoff.tex", "tables/phase2_cutoff.tex", "Answers cut off at the token limit (statistics appendix)"),
     _pf("phase2-analyses", "results/phase2_analyses/tables/phase2_no_answer.tex", "tables/phase2_no_answer.tex", "Answers with no final answer (statistics appendix)"),
     _pf("phase2-analyses", "results/phase2_analyses/tables/phase2_analyses_numbers.tex", "tables/phase2_analyses_numbers.tex", r"\ptwoan macros"),
+    _pf("overlap", "results/overlap/tables/heldout_reasoning_retained.tex", "tables/heldout_reasoning_retained.tex", "Table 4"),
+    _pf("overlap", "results/overlap/tables/overlap_coverage.tex", "tables/overlap_coverage.tex", "Overlap filtering and audit coverage (Appendix A.3)"),
+    _pf("overlap", "results/overlap/tables/overlap_items.tex", "tables/overlap_items.tex", "Benchmark items identified (Appendix A.3)"),
+    _pf("overlap", "results/overlap/tables/overlap_results.tex", "tables/overlap_results.tex", "Principal comparisons with and without the items (Appendix A.3)"),
+    _pf("overlap", "results/overlap/tables/overlap_summary.tex", "tables/overlap_summary.tex", "Every comparison without the items (Appendix A.3)"),
+    _pf("overlap", "results/overlap/tables/overlap_calls.tex", "tables/overlap_calls.tex", "Calls that change without the items (Appendix A.3)"),
+    _pf("overlap", "results/overlap/tables/corpus_overlap.tex", "tables/corpus_overlap.tex", "Phase 2 samples in MixtureVitae's pool (Appendix E)"),
+    _pf("overlap", "results/overlap/tables/phase2_tokens.tex", "tables/phase2_tokens.tex", "Training tokens of each reasoning dataset (Appendix A.2)"),
+    _pf("overlap", "results/overlap/tables/overlap_numbers.tex", "tables/overlap_numbers.tex", r"\povl macros"),
     _pf("frontloading", "results/frontloading/tables/factorial_summary.tex", "tables/factorial_summary.tex", "Table 2"),
     _pf("frontloading", "results/frontloading/figures/factorial_main.pdf", "figures/factorial_main.pdf", "Figure 2"),
     _pf("frontloading", "results/frontloading/tables/contrasts.tex", "tables/contrasts.tex", "Table 28"),
@@ -227,4 +243,10 @@ PAPER_ALLOWED: dict[str, str] = {}
 #: gives the reason. A pull request that changes numbers adds its reasons here,
 #: and the check fails for a changed number without one. Entries are removed
 #: once the paper uses the new numbers.
-REASONS: dict[tuple[str, str], str] = {}
+REASONS: dict[tuple[str, str], str] = {
+    ("tables/heldout_reasoning_retained.tex", "*"): (
+        "Table 4 now leaves out the 213 MATH500 problems that the benchmark-overlap audit "
+        "identified in the training data (input O1), from both checkpoints of every change, with "
+        "the same seed and correction. Its all-500 version is unchanged, as Appendix Table "
+        "heldout_reasoning_full."),
+}

@@ -152,19 +152,18 @@ TABLES = (
            chain("Nemotron", "nemotron", r8(O + NEMO, "4096"), r8(A + NEMO, "16k", SFT),
                  r8(A + NEMO, "16k", DPO)))),
     Table("language_decontamination.tex", "Table 12", "decon", "tab:lang_eval_table3",
-          r"Language suite comparison between decontaminated and non-decontaminated 300B "
-          r"MixtureVitae checkpoints at 4K and 16K context, before and after Phase 1 Tulu3 "
-          r"SFT/DPO. In contrast to the reasoning suite, the language results are essentially "
-          r"unchanged by decontamination." + VALUES_NOTE,
+          r"Language suite of 300B MixtureVitae checkpoints trained without and with the "
+          r"historical 13-gram filtering of their data, at 4K and 16K context, before and after "
+          r"Phase 1 Tulu3 SFT/DPO." + VALUES_NOTE,
           (Group(chain("MV", "orig.mv", r16(A + "1.7b-MixtureVitae-300BT-v1-WithChatTemplate"),
                        r16(A + "1.7b-MixtureVitae-300BT-v1-SFT-Tulu3"),
                        r16(A + "1.7b-MixtureVitae-300BT-v1-DPO-Tulu3")).rows,
-                 "Not Decontaminated"),
+                 "Without filtering"),
            chain("MV-16k", "orig.mv16k", r16(A + "1.7b-MixtureVitae-300BT-v1-16k-WithChatTemplate"),
                  r16(A + "1.7b-MixtureVitae-300BT-v1-16k-SFT-Tulu3"),
                  r16(A + "1.7b-MixtureVitae-300BT-v1-16k-DPO-Tulu3")),
            Group(chain("MV", "clean.mv", r8("ontocord/" + MV), r16(A + MV, SFT),
-                       r16(A + MV, DPO)).rows, "Decontaminated"),
+                       r16(A + MV, DPO)).rows, "With filtering"),
            chain("MV-16k", "clean.mv16k", r8("ontocord/" + MV, "16k"), r8(A + MV, "16k", SFT),
                  r8(A + MV, "16k", DPO))),
           section_head=r"\textbf{Base}", rotate=True),

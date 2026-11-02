@@ -37,7 +37,7 @@ measure = ["tokenizers==0.22.1"]
 # (`measure-question-overlap`, stats/question_overlap.py) with corpus-assay,
 # the 13-gram detector that grew out of the MixtureVitae decontamination. The
 # version is pinned because its normalization decides the matches.
-overlap = ["corpus-assay==0.1.0"]
+overlap = ["corpus-assay==0.1.0", "pyahocorasick==2.1.0"]
 
 [project.scripts]
 mvpt = "mv_post_train.cli:main"
